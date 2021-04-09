@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.FirstPageController">
+   <children>
+      <Button fx:id="button1" layoutX="23.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#handle1" prefHeight="50.0" prefWidth="100.0" text="Login" />
+      <Button cancelButton="true" layoutX="23.0" layoutY="160.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Exit" />
+      <Text layoutX="218.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bursa de transport" textAlignment="CENTER" wrappingWidth="185.13671875">
+         <font>
+            <Font name="Book Antiqua Italic" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
