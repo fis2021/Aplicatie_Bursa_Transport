@@ -2,19 +2,53 @@ package org.app.transport.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.services.UserService;
 
+import java.io.IOException;
+
 public class RegisterController {
-    public void handleRegisterAction(ActionEvent actionEvent) {
+    @FXML
+    private Text registrationMessage;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private ChoiceBox role;
 
+    @FXML
+    public void initialize() {
+        role.getItems().addAll("Transport client", "Trucking operator");
     }
 
-    public void handle2(MouseEvent mouseEvent) {
+    @FXML
+    public void handleRegisterAction() {
+        try {
+            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            registrationMessage.setText("Account created successfully!");
+        } catch (UsernameAlreadyExistsException e) {
+            registrationMessage.setText(e.getMessage());
+        }
     }
+
+    @FXML
+    Button button2;
+
+    public void handle2(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/firstpage.fxml"));
+        Stage window = (Stage)button2.getScene().getWindow();
+        window.setScene(new Scene(root, 750,500));
+    }
+
 }
