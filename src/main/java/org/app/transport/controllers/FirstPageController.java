@@ -14,17 +14,23 @@ public class FirstPageController {
 
 
     @FXML
-    Button button1,button;
+    Button button1,button,LoginButton;
 
     public void handle1(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/register.fxml"));
         Stage  window = (Stage)button1.getScene().getWindow();
-        window.setScene(new Scene(root, 750,500));
+        window.setScene(new Scene(root, 500,300));
     }
 
     public void handle(MouseEvent mouseEvent) {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
+    }
+
+    public void handleLogin(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+        Stage window = (Stage)LoginButton.getScene().getWindow();
+        window.setScene(new Scene(root, 500,300));
     }
 }
 
