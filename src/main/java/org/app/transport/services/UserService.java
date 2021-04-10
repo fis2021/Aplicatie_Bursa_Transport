@@ -34,6 +34,14 @@ public class UserService {
                 throw new UsernameAlreadyExistsException(username);
         }
     }
+    public static boolean checkIsInDataBase(String username){
+        boolean b=false;
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()))
+                b=true;
+        }
+        return b;
+    }
 
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
