@@ -9,38 +9,35 @@
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
-    <Text id="title-text" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+    <Text id="title-text" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
 
-    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label text="Username:" GridPane.rowIndex="2" />
 
-    <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <Label text="Password:" GridPane.rowIndex="3" />
 
-    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <PasswordField fx:id="passwordField" prefHeight="22.0" prefWidth="149.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-    <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-    <ChoiceBox fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-    </ChoiceBox>
-
-    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+    <Text fx:id="registrationMessage" wrappingWidth="74.0" GridPane.rowIndex="1" />
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
         <Button fx:id="button3" mnemonicParsing="false" onMouseClicked="#handle3" prefHeight="25.0" prefWidth="60.0" text="Back" />
-        <Button onAction="#handleLogIn" text="Sign in" />
+        <Button fx:id="SignInButton" onAction="#handleLogIn" text="Sign in" />
     </HBox>
     <columnConstraints>
-        <ColumnConstraints />
-        <ColumnConstraints />
+        <ColumnConstraints maxWidth="69.0" minWidth="57.0" prefWidth="59.0" />
+        <ColumnConstraints maxWidth="148.0" minWidth="136.0" prefWidth="146.0" />
+      <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints maxHeight="17.0" minHeight="0.0" prefHeight="0.0" />
-        <RowConstraints maxHeight="25.0" minHeight="8.0" prefHeight="25.0" />
         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-        <RowConstraints maxHeight="16.0" minHeight="16.0" prefHeight="16.0" />
+        <RowConstraints maxHeight="33.0" minHeight="0.0" prefHeight="12.0" />
+        <RowConstraints maxHeight="41.0" minHeight="0.0" prefHeight="21.0" />
+        <RowConstraints maxHeight="48.0" minHeight="25.0" prefHeight="33.0" />
+        <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+        <RowConstraints maxHeight="17.0" minHeight="0.0" prefHeight="0.0" />
+        <RowConstraints maxHeight="28.0" minHeight="8.0" prefHeight="26.0" />
+        <RowConstraints maxHeight="29.0" minHeight="0.0" prefHeight="15.0" />
+      <RowConstraints maxHeight="16.0" minHeight="0.0" prefHeight="0.0" />
     </rowConstraints>
 </GridPane>

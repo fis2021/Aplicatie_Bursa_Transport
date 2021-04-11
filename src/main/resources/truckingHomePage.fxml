@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TruckingHomePageController">
+   <children>
+      <Text layoutX="168.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" textAlignment="CENTER" wrappingWidth="264.857421875">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Text>
+      <ColorPicker layoutX="92.0" layoutY="158.0" onMouseClicked="#GetColor">
+         <value>
+            <Color red="0.6710526347160339" green="0.062134504318237305" blue="0.062134504318237305" />
+         </value>
+      </ColorPicker>
+   </children>
+</AnchorPane>
