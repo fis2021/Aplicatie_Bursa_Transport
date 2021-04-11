@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.app.transport.exceptions.IncorrectPassword;
+import org.app.transport.exceptions.IncorrectUsername;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.services.UserService;
 
@@ -38,6 +40,14 @@ public class RegisterController {
             UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException e) {
+            registrationMessage.setText(e.getMessage());
+        }
+        catch (IncorrectUsername e)
+        {
+            registrationMessage.setText(e.getMessage());
+        }
+        catch (IncorrectPassword e)
+        {
             registrationMessage.setText(e.getMessage());
         }
     }
