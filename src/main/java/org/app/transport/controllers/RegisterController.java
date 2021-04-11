@@ -48,7 +48,7 @@ public class RegisterController {
     public void handle2(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/firstpage.fxml"));
         Stage window = (Stage)button2.getScene().getWindow();
-        window.setScene(new Scene(root, 750,500));
+        window.setScene(new Scene(root, 500,400));
     }
 
 }

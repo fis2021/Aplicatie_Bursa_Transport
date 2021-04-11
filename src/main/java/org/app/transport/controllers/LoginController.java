@@ -10,8 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.app.transport.model.User;
 import org.app.transport.services.UserService;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class LoginController {
@@ -19,9 +21,30 @@ public class LoginController {
     private Text registrationMessage;
     @FXML
     private TextField usernameField;
-    public void handleLogIn(ActionEvent actionEvent) {
+    @FXML
+    private TextField passwordField;
+    @FXML
+    private Button SignInButton;
+    public void handleLogIn(ActionEvent actionEvent) throws IOException {
         if(UserService.checkIsInDataBase(usernameField.getText())==true)
-            registrationMessage.setText("Log in!");
+        {
+            User c=UserService.FindTheUser(usernameField.getText());
+
+             if(UserService.encodePassword(usernameField.getText(),passwordField.getText()).compareTo(c.getPassword())==0) {
+                 if (c.getRole().compareTo("Trucking operator") == 0) {
+                     Parent root = FXMLLoader.load(getClass().getResource("/truckingHomePage.fxml"));
+                     Stage window = (Stage) SignInButton.getScene().getWindow();
+                     window.setScene(new Scene(root, 500, 400));
+                 }
+                 if (c.getRole().compareTo("Transport client") == 0) {
+                     Parent root = FXMLLoader.load(getClass().getResource("/transportHomePage.fxml"));
+                     Stage window = (Stage) SignInButton.getScene().getWindow();
+                     window.setScene(new Scene(root, 500, 400));
+                 }
+             }
+             else registrationMessage.setText("incorrect password");
+
+        }
         else registrationMessage.setText("No account!");
     }
     @FXML

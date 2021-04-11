@@ -42,8 +42,15 @@ public class UserService {
         }
         return b;
     }
-
-    private static String encodePassword(String salt, String password) {
+    public static User FindTheUser(String username){
+        User a=new User();
+            for (User user : userRepository.find()) {
+                if (Objects.equals(username, user.getUsername()))
+                    a=user;
+            }
+            return a;
+    }
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 

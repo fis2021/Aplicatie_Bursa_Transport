@@ -19,7 +19,7 @@ public class FirstPageController {
     public void handle1(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/register.fxml"));
         Stage  window = (Stage)button1.getScene().getWindow();
-        window.setScene(new Scene(root, 500,300));
+        window.setScene(new Scene(root, 500,400));
     }
 
     public void handle(MouseEvent mouseEvent) {
@@ -30,7 +30,7 @@ public class FirstPageController {
     public void handleLogin(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
         Stage window = (Stage)LoginButton.getScene().getWindow();
-        window.setScene(new Scene(root, 500,300));
+        window.setScene(new Scene(root, 500,400));
     }
 }
 
