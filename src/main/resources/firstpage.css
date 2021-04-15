@@ -1,0 +1,4 @@
+.body{
+    -fx-background-image: url('icon_truck.png');
+    -fx-background-size: cover;
+}

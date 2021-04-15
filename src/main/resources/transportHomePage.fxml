@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TransportClientHomePageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TransportClientHomePageController">
    <children>
-      <Text layoutX="165.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" wrappingWidth="270.13671875">
+      <Text fill="#970a0a" layoutX="165.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" wrappingWidth="270.13671875">
          <font>
             <Font size="51.0" />
          </font>
       </Text>
-      <Button fx:id="closeButton" layoutX="198.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#handle4" text="close" />
+      <Button fx:id="closeButton" layoutX="31.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#handle4" style="-fx-background-color: gray;" text="close" textFill="#f8f6f6" />
    </children>
 </AnchorPane>
