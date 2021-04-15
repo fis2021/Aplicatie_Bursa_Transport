@@ -16,6 +16,8 @@ public class TransportClientHomePageController {
      Button closeButton;
     @FXML
     private Button DisplayGoodsList;
+    @FXML
+    private Button addgoods;
     public void handle4(MouseEvent mouseEvent) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
@@ -26,5 +28,11 @@ public class TransportClientHomePageController {
         Stage  window = (Stage)DisplayGoodsList.getScene().getWindow();
         window.setScene(new Scene(root, 500,400));
 
+    }
+
+    public void handleAddgoods(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AddGoods.fxml"));
+        Stage  window = (Stage)addgoods.getScene().getWindow();
+        window.setScene(new Scene(root, 500,400));
     }
 }
