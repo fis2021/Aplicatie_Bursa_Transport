@@ -30,16 +30,25 @@ public class LoginController {
         {
             User c=UserService.FindTheUser(usernameField.getText());
 
-             if(UserService.encodePassword(usernameField.getText(),passwordField.getText()).compareTo(c.getPassword())==0) {
+             if(UserService.encodePassword(usernameField.getText(),passwordField.getText()).compareTo(c.getPassword())==0)
+             {
                  if (c.getRole().compareTo("Trucking operator") == 0) {
                      Parent root = FXMLLoader.load(getClass().getResource("/truckingHomePage.fxml"));
                      Stage window = (Stage) SignInButton.getScene().getWindow();
                      window.setScene(new Scene(root, 500, 400));
                  }
                  if (c.getRole().compareTo("Transport client") == 0) {
-                     Parent root = FXMLLoader.load(getClass().getResource("/transportHomePage.fxml"));
-                     Stage window = (Stage) SignInButton.getScene().getWindow();
-                     window.setScene(new Scene(root, 500, 400));
+                     try {
+                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/transportHomePage.fxml"));
+                         Parent root = (Parent) loader.load();
+                         TransportClientHomePageController log=loader.getController();
+                         log.setUserName(usernameField.getText());
+                         Stage window = (Stage) SignInButton.getScene().getWindow();
+                         window.setScene(new Scene(root, 500, 400));
+                     } catch (IOException e)
+                     {
+                     e.printStackTrace();
+                     }
                  }
              }
              else registrationMessage.setText("incorrect password");
@@ -53,5 +62,9 @@ public class LoginController {
         Parent root = FXMLLoader.load(getClass().getResource("/firstpage.fxml"));
         Stage window = (Stage)button3.getScene().getWindow();
         window.setScene(new Scene(root, 500,400));
+    }
+    public String getUsernameField()
+    {
+        return usernameField.getText();
     }
 }

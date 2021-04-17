@@ -18,21 +18,42 @@ public class TransportClientHomePageController {
     private Button DisplayGoodsList;
     @FXML
     private Button addgoods;
+    private String userName;
+    public void setUserName(String userName)
+    {
+        this.userName=userName;
+    }
     public void handle4(MouseEvent mouseEvent) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
     public void handleGoodsList(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/MyGoodsList.fxml"));
-        Stage  window = (Stage)DisplayGoodsList.getScene().getWindow();
-        window.setScene(new Scene(root, 500,400));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MyGoodsList.fxml"));
+            Parent root = (Parent) loader.load();
+            MyGoodsList log=loader.getController();
+            log.setUserName1(userName);
+            Stage window = (Stage) DisplayGoodsList.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 
     public void handleAddgoods(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/AddGoods.fxml"));
-        Stage  window = (Stage)addgoods.getScene().getWindow();
-        window.setScene(new Scene(root, 500,400));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AddGoods.fxml"));
+            Parent root = (Parent) loader.load();
+            AddGoodsController log=loader.getController();
+            log.setUser(userName);
+            Stage window = (Stage) addgoods.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
