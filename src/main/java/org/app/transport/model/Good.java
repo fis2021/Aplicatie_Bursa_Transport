@@ -26,6 +26,6 @@ public class Good {
     public String getDetailedAddress(){return DetailedAddress;}
     public String toString()
     {
-        return CompanyName+ ":"+LocationFrom+"-"+LocationTo;
+        return weight+"-"+LocationFrom+"-"+LocationTo+ "-"+CompanyName+"-"+DetailedAddress;
     }
 }

@@ -19,12 +19,12 @@ import static org.app.transport.services.FileSystemService.getPathToFile;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class UserService {
-    private static ObjectRepository<User> userRepository;
+    public static ObjectRepository<User> userRepository;
 
     public static void initDatabase() {
 
             Nitrite database = Nitrite.builder()
-                    .filePath(getPathToFile("mylove.db").toFile())
+                    .filePath(getPathToFile("myData.db").toFile())
                     .openOrCreate("test", "test");
             userRepository = database.getRepository(User.class);
 

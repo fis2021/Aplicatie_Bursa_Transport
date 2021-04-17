@@ -48,10 +48,14 @@ public class User {
     }
     public void setSomething(String a)
     {
-        if(good.compareTo("-")==0)
+        if(good.compareTo("*")==0)
             good=good+a;
         else
         good=good+"/"+a;
+    }
+    public void set(String a)
+    {
+        good=a;
     }
     public void setRole(String role) {
             this.role = role;

@@ -1,6 +1,8 @@
 package org.app.transport.controllers;
 
 import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,7 +28,9 @@ public class MyGoodsList {
     @FXML
     private ListView<String> listView;
     private String userName1;
-
+    private String listItem;
+@FXML
+private Button EditButton;
     public void handleReturn(MouseEvent mouseEvent) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/transportHomePage.fxml"));
@@ -51,7 +55,26 @@ public class MyGoodsList {
         for (String s : splits) {
            listView.getItems().add(s);
         }
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                listItem=listView.getSelectionModel().getSelectedItem();
+            }
+        });
+    }
 
+    public void handleEdit(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/editGoods.fxml"));
+            Parent root = (Parent) loader.load();
+            EditGoodsController log=loader.getController();
+            log.setUserNameListItem(listItem,userName1);
+            Stage window = (Stage) EditButton.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
 
