@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.app.transport.model.Good;
 import org.app.transport.model.User;
@@ -31,6 +32,8 @@ public class MyGoodsList {
     private String listItem;
 @FXML
 private Button EditButton;
+@FXML
+private Text message;
     public void handleReturn(MouseEvent mouseEvent) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/transportHomePage.fxml"));
@@ -64,16 +67,46 @@ private Button EditButton;
     }
 
     public void handleEdit(MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/editGoods.fxml"));
-            Parent root = (Parent) loader.load();
-            EditGoodsController log=loader.getController();
-            log.setUserNameListItem(listItem,userName1);
-            Stage window = (Stage) EditButton.getScene().getWindow();
-            window.setScene(new Scene(root, 500, 400));
-        } catch (IOException e)
-        {
-            e.printStackTrace();
+        if(listItem==null)
+            message.setText("No item selected!");
+        else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/editGoods.fxml"));
+                Parent root = (Parent) loader.load();
+                EditGoodsController log = loader.getController();
+                log.setUserNameListItem(listItem, userName1);
+                Stage window = (Stage) EditButton.getScene().getWindow();
+                window.setScene(new Scene(root, 500, 400));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void handleDelete(MouseEvent mouseEvent) {
+
+        if (listItem==null)
+            message.setText("No item selected!");
+        else {
+            User c = UserService.FindTheUser(userName1);
+            String[] splits = c.getGood().split("/");
+            String b = "*";
+            boolean sw = true;
+            for (String s : splits) {
+                if (s.compareTo(listItem) != 0) {
+                    if (sw) {
+                        b = b + s;
+                        sw = false;
+                    } else {
+                        b = b + "/" + s;
+                    }
+                }
+            }
+            b = b.substring(1);
+            c.set(b);
+            UserService.updateUser(c, userName1);
+            listView.getItems().remove(listItem);
+            message.setText("The item was deleted");
         }
     }
 }

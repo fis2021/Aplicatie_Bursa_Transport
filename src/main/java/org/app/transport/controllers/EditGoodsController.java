@@ -89,8 +89,8 @@ public class EditGoodsController  {
                         b=b+"/"+s;
                     }
                 }
+                b=b.substring(1);
                 c.set(b);
-                System.out.println(c.getGood());
             UserService.updateUser(c,userName);
             for(User user:UserService.userRepository.find())
                 if(user.getRole().compareTo("Trucking operator")==0) {
@@ -116,6 +116,7 @@ public class EditGoodsController  {
                             b=b+"/"+s;
                         }
                     }
+                    b=b.substring(1);
                     user.set(b);
                    UserService.updateUser(user,user.getUsername());
                 }

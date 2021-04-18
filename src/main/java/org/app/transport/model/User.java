@@ -49,7 +49,10 @@ public class User {
     public void setSomething(String a)
     {
         if(good.compareTo("*")==0)
-            good=good+a;
+        {
+            good = good + a;
+            good=good.substring(1);
+        }
         else
         good=good+"/"+a;
     }
