@@ -19,6 +19,7 @@ import org.app.transport.model.Good;
 import org.app.transport.model.User;
 import org.app.transport.services.UserService;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -54,16 +55,20 @@ private Text message;
 
     public void HandleView(MouseEvent mouseEvent) {
         User c = UserService.FindTheUser(userName1);
-        String[] splits = c.getGood().split("/");
-        for (String s : splits) {
-           listView.getItems().add(s);
-        }
-        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                listItem=listView.getSelectionModel().getSelectedItem();
+        if(c.getGood().isEmpty()||c.getGood().compareTo("*")==0)
+            message.setText("No element in the list");
+            else {
+            String[] splits = c.getGood().split("/");
+            for (String s : splits) {
+                listView.getItems().add(s);
             }
-        });
+            listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                    listItem = listView.getSelectionModel().getSelectedItem();
+                }
+            });
+        }
     }
 
     public void handleEdit(MouseEvent mouseEvent) {

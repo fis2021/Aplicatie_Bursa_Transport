@@ -4,13 +4,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightsteelblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TruckingHomePageController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: lightsteelblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TruckingHomePageController">
    <children>
-      <Text fill="#9a1b1b" layoutX="168.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" textAlignment="CENTER" wrappingWidth="264.857421875">
+      <Text fill="#9a1b1b" layoutX="118.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" textAlignment="CENTER" wrappingWidth="264.857421875">
          <font>
             <Font size="46.0" />
          </font>
       </Text>
-      <Button fx:id="closeButton" layoutX="36.0" layoutY="138.0" mnemonicParsing="false" onMouseClicked="#handlecloseButton" style="-fx-background-color: gray;" text="close" textFill="#f2ebeb" />
+      <Button fx:id="closeButton" layoutX="38.0" layoutY="229.0" mnemonicParsing="false" onMouseClicked="#handlecloseButton" style="-fx-background-color: gray;" text="close" textFill="#f2ebeb" />
    </children>
 </AnchorPane>
