@@ -15,4 +15,7 @@ public class TruckingHomePageController {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
+
+    public void handleList(MouseEvent mouseEvent) {
+    }
 }

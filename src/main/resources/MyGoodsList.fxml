@@ -7,10 +7,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.MyGoodsList">
    <children>
       <ListView fx:id="listView" layoutX="102.0" layoutY="33.0" prefHeight="265.0" prefWidth="377.0" />
-      <Button fx:id="EditButton" layoutX="258.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#handleEdit" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: gray;" text="Edit" textFill="#fffdfd" />
-      <Button fx:id="deleteButton" layoutX="348.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: gray;" text="Delete" textFill="#fcfcfc" />
+      <Button fx:id="EditButton" layoutX="199.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#handleEdit" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: gray;" text="Edit" textFill="#fffdfd" />
+      <Button fx:id="deleteButton" layoutX="302.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: gray;" text="Delete" textFill="#fcfcfc" />
       <Button fx:id="returnHome" layoutX="8.0" layoutY="339.0" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="37.0" prefWidth="129.0" style="-fx-background-color: gray;" text="Return to HomePage" textFill="#fcf9f9" />
-      <Button fx:id="viewList" layoutX="158.0" layoutY="314.0" mnemonicParsing="false" onMouseClicked="#HandleView" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: gray;" text="ViewList" textFill="#fcf9f9" />
       <Text fx:id="message" layoutX="284.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="129.0" />
    </children>
 </AnchorPane>

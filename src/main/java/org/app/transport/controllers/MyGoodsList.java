@@ -51,13 +51,10 @@ private Text message;
 
     public void setUserName1(String userName1) {
         this.userName1 = userName1;
-    }
-
-    public void HandleView(MouseEvent mouseEvent) {
         User c = UserService.FindTheUser(userName1);
         if(c.getGood().isEmpty()||c.getGood().compareTo("*")==0)
             message.setText("No element in the list");
-            else {
+        else {
             String[] splits = c.getGood().split("/");
             for (String s : splits) {
                 listView.getItems().add(s);
