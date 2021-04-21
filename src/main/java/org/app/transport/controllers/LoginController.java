@@ -33,9 +33,17 @@ public class LoginController {
              if(UserService.encodePassword(usernameField.getText(),passwordField.getText()).compareTo(c.getPassword())==0)
              {
                  if (c.getRole().compareTo("Trucking operator") == 0) {
-                     Parent root = FXMLLoader.load(getClass().getResource("/truckingHomePage.fxml"));
-                     Stage window = (Stage) SignInButton.getScene().getWindow();
-                     window.setScene(new Scene(root, 500, 400));
+                     try {
+                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/truckingHomePage.fxml"));
+                         Parent root = (Parent) loader.load();
+                         TruckingHomePageController log=loader.getController();
+                         log.setUserName(usernameField.getText());
+                         Stage window = (Stage) SignInButton.getScene().getWindow();
+                         window.setScene(new Scene(root, 500, 400));
+                     } catch (IOException e)
+                     {
+                         e.printStackTrace();
+                     }
                  }
                  if (c.getRole().compareTo("Transport client") == 0) {
                      try {
