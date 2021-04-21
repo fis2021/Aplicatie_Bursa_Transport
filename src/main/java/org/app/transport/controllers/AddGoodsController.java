@@ -57,11 +57,6 @@ public void setUser(String userName)
            Good g = new Good(weight.getText(), locationFrom.getText(), locationTo.getText(), companyName.getText(), detailedAddress.getText());
            c.setSomething(g.toString());
            UserService.updateUser(c,username);
-           for(User user:UserService.userRepository.find())
-               if(user.getRole().compareTo("Trucking operator")==0) {
-                   user.setSomething(g.toString());
-                   UserService.updateUser(user,user.getUsername());
-               }
            exception.setText("Your good is public!");
        }
     }

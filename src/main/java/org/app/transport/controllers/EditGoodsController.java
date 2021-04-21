@@ -92,34 +92,6 @@ public class EditGoodsController  {
                 b=b.substring(1);
                 c.set(b);
             UserService.updateUser(c,userName);
-            for(User user:UserService.userRepository.find())
-                if(user.getRole().compareTo("Trucking operator")==0) {
-                     splits = user.getGood().split("/");
-                    k=0;
-                    for (String s : splits) {
-                        if (s.compareTo(listItem) == 0) {
-                            splits[k]=g.toString();
-                        }
-                        k++;
-                    }
-                     b="*";
-                    sw=true;
-                    for(String s:splits)
-                    {
-                        if(sw==true)
-                        {
-                            b=b+s;
-                            sw=false;
-                        }
-                        else
-                        {
-                            b=b+"/"+s;
-                        }
-                    }
-                    b=b.substring(1);
-                    user.set(b);
-                   UserService.updateUser(user,user.getUsername());
-                }
             exception.setText("Your good is public!");
         }
     }
