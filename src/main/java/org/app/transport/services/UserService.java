@@ -5,6 +5,9 @@ import org.app.transport.exceptions.IncorrectUsername;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.model.User;
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.RemoveOptions;
+import org.dizitart.no2.exceptions.NitriteIOException;
+import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import java.nio.charset.StandardCharsets;
@@ -13,23 +16,24 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 import static org.app.transport.services.FileSystemService.getPathToFile;
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class UserService {
-    private static ObjectRepository<User> userRepository;
+    public static ObjectRepository<User> userRepository;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("registration-example.db").toFile())
-                .openOrCreate("test", "test");
 
-        userRepository = database.getRepository(User.class);
+            Nitrite database = Nitrite.builder()
+                    .filePath(getPathToFile("myData.db").toFile())
+                    .openOrCreate("test", "test");
+            userRepository = database.getRepository(User.class);
+
     }
-
-    public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException,IncorrectUsername, IncorrectPassword {
+    public static void addUser(String username, String password, String role, String good) throws UsernameAlreadyExistsException,IncorrectUsername, IncorrectPassword {
         checkUserDoesNotAlreadyExist(username);
         if(username.length()<3) throw new IncorrectUsername();
         if(password.length()<3) throw new IncorrectPassword();
-        userRepository.insert(new User(username, encodePassword(username, password), role));
+        userRepository.insert(new User(username, encodePassword(username, password), role,good));
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
@@ -37,6 +41,13 @@ public class UserService {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
         }
+    }
+    public static void updateUser(User c,String username)
+    {
+        userRepository.update(eq("username",username),c);
+       // User p=new User(c.getUsername(),c.getPassword(),c.getRole(),c.getGood()+"/"+good);
+        //userRepository.remove(eq("username",username));
+        //userRepository.insert(p);
     }
     public static boolean checkIsInDataBase(String username){
         boolean b=false;

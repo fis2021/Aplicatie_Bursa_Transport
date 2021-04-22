@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: lightsteelblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.GoodListController">
+   <children>
+      <ListView fx:id="listView" layoutX="118.0" layoutY="21.0" prefHeight="309.0" prefWidth="358.0" />
+      <Button fx:id="ReturnHome" layoutX="14.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Return To &#10;Home Page" textFill="#f2f0f0" />
+      <Button layoutX="193.0" layoutY="340.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Filter" textFill="#fcf8f8" />
+      <Button layoutX="297.0" layoutY="340.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="View &#10;details" textFill="#f5f2f2" />
+      <Button layoutX="399.0" layoutY="340.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Propose &#10;   offer" textFill="#f2eeee" />
+      <Button layoutX="93.0" layoutY="340.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Refresh" textFill="#fffafa" />
+   </children>
+</AnchorPane>
