@@ -48,10 +48,14 @@ public class User {
     }
     public void setSomething(String a)
     {
-        if(good.compareTo("*")==0||good.isEmpty()==true)
+        if(good.compareTo("*")==0)
         {
             good = good + a;
             good=good.substring(1);
+        }
+        else if(good.isEmpty()==true)
+        {
+            good=good+a;
         }
         else
         good=good+"/"+a;
