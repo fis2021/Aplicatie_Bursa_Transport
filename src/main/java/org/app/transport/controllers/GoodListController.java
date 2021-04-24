@@ -28,9 +28,12 @@ public class GoodListController {
     private Button filter;
     private String username;
     private String listElement;
+    private String LocT;
+    private String LocF;
     private ArrayList<String> a =new ArrayList<String>();
-    public void setUsername(String username)
-    {
+    public void setUsername(String username,String LocF,String LocT)
+    {   this.LocF=LocF;
+         this.LocT=LocT;
         this.username=username;
         String[] splits;
         String [] splits2;
