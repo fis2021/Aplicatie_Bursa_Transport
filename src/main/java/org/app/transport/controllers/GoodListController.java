@@ -9,19 +9,24 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.app.transport.model.User;
 import org.app.transport.services.UserService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GoodListController {
     @FXML
     private Button ReturnHome;
     @FXML
     private ListView<String> listView;
+    @FXML
+    private Text message;
     private String username;
     private String listElement;
+    private ArrayList<String> a =new ArrayList<String>();
     public void setUsername(String username)
     {
         this.username=username;
@@ -35,6 +40,7 @@ public class GoodListController {
                     if(s.compareTo("*")!=0&&s.compareTo("")!=0) {
                         splits2 = s.split("-");
                         b=splits2[3]+":"+splits2[1]+"-"+splits2[2];
+                        a.add(b);
                         listView.getItems().add(b);
                     }
                 }
@@ -60,5 +66,31 @@ public class GoodListController {
         {
             e.printStackTrace();
         }
+    }
+
+    public void handleRefresh(MouseEvent mouseEvent) {
+        listView.getItems().removeAll(a);
+        String[] splits;
+        String [] splits2;
+        String b;
+        for(User user: UserService.userRepository.find())
+            if(user.getRole().compareTo("Transport client")==0) {
+                splits=user.getGood().split("/");
+                for (String s : splits) {
+                    if(s.compareTo("*")!=0&&s.compareTo("")!=0) {
+                        splits2 = s.split("-");
+                        b=splits2[3]+":"+splits2[1]+"-"+splits2[2];
+                        listView.getItems().add(b);
+                    }
+                }
+            }
+        message.setText("The list was refreshed!");
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                listElement = listView.getSelectionModel().getSelectedItem();
+            }
+        });
+
     }
 }
