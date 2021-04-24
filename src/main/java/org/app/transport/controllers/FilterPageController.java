@@ -1,13 +1,24 @@
 package org.app.transport.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class FilterPageController {
 @FXML
     private ChoiceBox<String> choiceBox1;
 @FXML
     private ChoiceBox<String> choiceBox2;
+private String username;
+@FXML
+private Button filter;
     @FXML
     public void initialize()
     {
@@ -547,6 +558,24 @@ public class FilterPageController {
                 "Zărneşti",
                 "Zimnicea",
                 "Zlatna");
+    }
+
+    public void handleFiltration(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GoodList.fxml"));
+            Parent root = (Parent) loader.load();
+            GoodListController log=loader.getController();
+            log.setUsername(username,choiceBox1.getValue(),choiceBox2.getValue());
+            Stage window = (Stage) filter.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void setUserName(String username) {
+        this.username=username;
     }
 }
 

@@ -44,9 +44,32 @@ public class GoodListController {
                 for (String s : splits) {
                     if(s.compareTo("*")!=0&&s.compareTo("")!=0) {
                         splits2 = s.split("-");
-                        b=splits2[3]+":"+splits2[1]+"-"+splits2[2];
-                        a.add(b);
-                        listView.getItems().add(b);
+                        if(LocF.compareTo("Everywhere")==0&&LocT.compareTo("Everywhere")==0)
+                        {
+                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            a.add(b);
+                            listView.getItems().add(b);
+                        }
+                        else
+                        if(LocF.compareTo("Everywhere")==0&&splits2[2].compareTo(LocT)==0)
+                        {
+                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            a.add(b);
+                            listView.getItems().add(b);
+                        }
+                        else
+                            if(LocT.compareTo("Everywhere")==0&&splits2[1].compareTo(LocF)==0)
+                            {
+                                b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                                a.add(b);
+                                listView.getItems().add(b);
+                            }
+                            else
+                        if(splits2[1].compareTo(LocF)==0&&splits2[2].compareTo(LocT)==0) {
+                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            a.add(b);
+                            listView.getItems().add(b);
+                        }
                     }
                 }
             }
@@ -84,8 +107,32 @@ public class GoodListController {
                 for (String s : splits) {
                     if(s.compareTo("*")!=0&&s.compareTo("")!=0) {
                         splits2 = s.split("-");
-                        b=splits2[3]+":"+splits2[1]+"-"+splits2[2];
-                        listView.getItems().add(b);
+                        if(LocF.compareTo("Everywhere")==0&&LocT.compareTo("Everywhere")==0)
+                        {
+                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            a.add(b);
+                            listView.getItems().add(b);
+                        }
+                        else
+                        if(LocF.compareTo("Everywhere")==0&&splits2[2].compareTo(LocT)==0)
+                        {
+                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            a.add(b);
+                            listView.getItems().add(b);
+                        }
+                        else
+                        if(LocT.compareTo("Everywhere")==0&&splits2[1].compareTo(LocF)==0)
+                        {
+                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            a.add(b);
+                            listView.getItems().add(b);
+                        }
+                        else
+                        if(splits2[1].compareTo(LocF)==0&&splits2[2].compareTo(LocT)==0) {
+                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            a.add(b);
+                            listView.getItems().add(b);
+                        }
                     }
                 }
             }
@@ -100,8 +147,16 @@ public class GoodListController {
     }
 
     public void handleFilter(MouseEvent mouseEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/filterPage.fxml"));
-        Stage window = (Stage)filter.getScene().getWindow();
-        window.setScene(new Scene(root, 500,400));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/filterPage.fxml"));
+            Parent root = (Parent) loader.load();
+            FilterPageController log=loader.getController();
+            log.setUserName(username);
+            Stage window = (Stage) filter.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

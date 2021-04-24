@@ -10,6 +10,6 @@
       <ChoiceBox fx:id="choiceBox2" layoutX="154.0" layoutY="175.0" prefWidth="150.0" />
       <Text layoutX="50.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location from:" wrappingWidth="86.13671875" />
       <Text layoutX="56.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location to:" wrappingWidth="86.13671875" />
-      <Button layoutX="304.0" layoutY="271.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="62.0" style="-fx-background-color: gray;" text="Filter" textFill="#f5f2f2" />
+      <Button fx:id="filter" layoutX="304.0" layoutY="271.0" mnemonicParsing="false" onMouseClicked="#handleFiltration" prefHeight="42.0" prefWidth="62.0" style="-fx-background-color: gray;" text="Filter" textFill="#f5f2f2" />
    </children>
 </AnchorPane>
