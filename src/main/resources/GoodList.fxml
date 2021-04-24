@@ -8,7 +8,7 @@
    <children>
       <ListView fx:id="listView" layoutX="118.0" layoutY="21.0" prefHeight="309.0" prefWidth="358.0" />
       <Button fx:id="ReturnHome" layoutX="14.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Return To &#10;Home Page" textFill="#f2f0f0" />
-      <Button layoutX="193.0" layoutY="340.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Filter" textFill="#fcf8f8" />
+      <Button fx:id="filter" layoutX="193.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#handleFilter" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Filter" textFill="#fcf8f8" />
       <Button layoutX="297.0" layoutY="340.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="View &#10;details" textFill="#f5f2f2" />
       <Button layoutX="399.0" layoutY="340.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Propose &#10;   offer" textFill="#f2eeee" />
       <Button fx:id="refresh" layoutX="93.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#handleRefresh" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: gray;" text="Refresh" textFill="#fffafa" />

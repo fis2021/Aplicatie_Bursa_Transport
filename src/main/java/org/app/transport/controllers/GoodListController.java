@@ -24,6 +24,8 @@ public class GoodListController {
     private ListView<String> listView;
     @FXML
     private Text message;
+    @FXML
+    private Button filter;
     private String username;
     private String listElement;
     private ArrayList<String> a =new ArrayList<String>();
@@ -92,5 +94,11 @@ public class GoodListController {
             }
         });
 
+    }
+
+    public void handleFilter(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/filterPage.fxml"));
+        Stage window = (Stage)filter.getScene().getWindow();
+        window.setScene(new Scene(root, 500,400));
     }
 }
