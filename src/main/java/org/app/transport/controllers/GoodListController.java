@@ -23,8 +23,6 @@ public class GoodListController {
     @FXML
     private ListView<String> listView;
     @FXML
-    private Text message;
-    @FXML
     private Button filter;
     private String username;
     private String listElement;
@@ -98,6 +96,7 @@ public class GoodListController {
 
     public void handleRefresh(MouseEvent mouseEvent) {
         listView.getItems().removeAll(a);
+        a.removeAll(a);
         String[] splits;
         String [] splits2;
         String b;
@@ -136,7 +135,6 @@ public class GoodListController {
                     }
                 }
             }
-        message.setText("The list was refreshed!");
         listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {

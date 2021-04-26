@@ -562,10 +562,21 @@ private Button filter;
 
     public void handleFiltration(MouseEvent mouseEvent) {
         try {
+
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GoodList.fxml"));
             Parent root = (Parent) loader.load();
             GoodListController log=loader.getController();
-            log.setUsername(username,choiceBox1.getValue(),choiceBox2.getValue());
+            if(choiceBox1.getValue()==null&&choiceBox2.getValue()!=null)
+            log.setUsername(username,"Everywhere",choiceBox2.getValue());
+            else
+            if(choiceBox1.getValue()!=null&&choiceBox2.getValue()==null)
+                log.setUsername(username,choiceBox1.getValue(),"Everywhere");
+            else
+            if(choiceBox1.getValue()==null&&choiceBox2.getValue()==null)
+                log.setUsername(username,"Everywhere","Everywhere");
+            else
+                log.setUsername(username,choiceBox1.getValue(),choiceBox2.getValue());
             Stage window = (Stage) filter.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e)
