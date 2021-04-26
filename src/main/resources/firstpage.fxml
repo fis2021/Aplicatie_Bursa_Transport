@@ -4,15 +4,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@firstpage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.FirstPageController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" styleClass="body" stylesheets="@firstpage.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.FirstPageController">
    <children>
-      <Button fx:id="button1" layoutX="23.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#handle1" prefHeight="50.0" prefWidth="100.0" text="Register" />
-      <Button fx:id="button" layoutX="23.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#handle" prefHeight="50.0" prefWidth="100.0" text="Exit" />
-      <Text layoutX="153.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: royalblue;" text="Bursa de transport" textAlignment="CENTER" wrappingWidth="323.13671875">
+      <Text layoutX="166.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: royalblue;" text="Bursa de transport" textAlignment="CENTER" wrappingWidth="323.13671875">
          <font>
             <Font name="Book Antiqua Italic" size="40.0" />
          </font>
       </Text>
-      <Button fx:id="LoginButton" layoutX="23.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#handleLogin" prefHeight="50.0" prefWidth="100.0" text="Login" />
+      <VBox prefHeight="400.0" prefWidth="157.0" style="-fx-background-color: khaki;">
+         <children>
+            <Button fx:id="button1" mnemonicParsing="false" onMouseClicked="#handle1" prefHeight="99.0" prefWidth="162.0" style="-fx-background-color: khaki;" text="Register" />
+            <Button fx:id="LoginButton" mnemonicParsing="false" onMouseClicked="#handleLogin" prefHeight="101.0" prefWidth="163.0" style="-fx-background-color: khaki;" text="Login" />
+            <Button fx:id="button" mnemonicParsing="false" onMouseClicked="#handle" prefHeight="115.0" prefWidth="169.0" style="-fx-background-color: khaki;" text="Exit" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
