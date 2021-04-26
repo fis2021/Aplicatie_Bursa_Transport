@@ -11,11 +11,6 @@
       <ListView fx:id="listView" layoutX="134.0" layoutY="1.0" prefHeight="407.0" prefWidth="367.0" style="-fx-background-color: seashell;" />
       <VBox prefHeight="408.0" prefWidth="137.0" style="-fx-background-color: gray;">
          <children>
-            <Button fx:id="ReturnHome" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="65.0" prefWidth="129.0" style="-fx-background-color: gray;" text="Return To &#10;Home Page" textFill="#f2f0f0">
-               <graphic>
-                  <FontAwesomeIconView glyphName="BACKWARD" />
-               </graphic>
-            </Button>
             <Button fx:id="refresh" mnemonicParsing="false" onMouseClicked="#handleRefresh" prefHeight="71.0" prefWidth="114.0" style="-fx-background-color: gray;" text="Refresh" textFill="#fffafa">
                <graphic>
                   <FontAwesomeIconView glyphName="REFRESH" />
@@ -31,9 +26,14 @@
                   <FontAwesomeIconView glyphName="INFO" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="121.0" style="-fx-background-color: gray;" text="Propose &#10;   offer" textFill="#f2eeee">
+            <Button mnemonicParsing="false" prefHeight="92.0" prefWidth="122.0" style="-fx-background-color: gray;" text="Propose &#10;   offer" textFill="#f2eeee">
                <graphic>
                   <FontAwesomeIconView glyphName="USD" />
+               </graphic>
+            </Button>
+            <Button fx:id="ReturnHome" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="81.0" prefWidth="123.0" style="-fx-background-color: gray;" text="Return To &#10;Home Page" textFill="#f2f0f0">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BACKWARD" />
                </graphic>
             </Button>
          </children>
