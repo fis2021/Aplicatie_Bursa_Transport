@@ -4,15 +4,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TransportClientHomePageController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TransportClientHomePageController">
    <children>
-      <Text fill="#970a0a" layoutX="171.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" wrappingWidth="270.13671875">
+      <Text fill="#970a0a" layoutX="183.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Page" wrappingWidth="270.13671875">
          <font>
             <Font size="51.0" />
          </font>
       </Text>
-      <Button fx:id="closeButton" layoutX="31.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#handle4" prefHeight="38.0" prefWidth="95.0" style="-fx-background-color: gray;" text="close" textFill="#f8f6f6" />
-      <Button fx:id="addgoods" layoutX="31.0" layoutY="138.0" mnemonicParsing="false" onMouseClicked="#handleAddgoods" prefHeight="38.0" prefWidth="95.0" style="-fx-background-color: gray;" text="Add goods" textFill="#fffbfb" />
-      <Button fx:id="DisplayGoodsList" layoutX="31.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#handleGoodsList" prefHeight="38.0" prefWidth="95.0" style="-fx-background-color: gray;" text="My goods list" textFill="#f8f6f6" />
+      <VBox prefHeight="400.0" prefWidth="161.0" style="-fx-background-color: gray;">
+         <children>
+            <Button fx:id="addgoods" mnemonicParsing="false" onMouseClicked="#handleAddgoods" prefHeight="65.0" prefWidth="168.0" style="-fx-background-color: gray;" text="Add goods" textFill="#fffbfb" />
+            <Button fx:id="DisplayGoodsList" mnemonicParsing="false" onMouseClicked="#handleGoodsList" prefHeight="70.0" prefWidth="177.0" style="-fx-background-color: gray;" text="My goods list" textFill="#f8f6f6" />
+            <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#handle4" prefHeight="64.0" prefWidth="168.0" style="-fx-background-color: gray;" text="close" textFill="#f8f6f6" />
+         </children>
+      </VBox>
+      <Text fill="#9e0606" layoutX="193.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here is the place, where your &#10;goods, will be transported very fast and you will be glad that you count on us!&#10;" wrappingWidth="250.13671875">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
