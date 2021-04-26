@@ -31,7 +31,7 @@ public class TruckingHomePageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GoodList.fxml"));
             Parent root = (Parent) loader.load();
             GoodListController log=loader.getController();
-            log.setUsername(userName);
+            log.setUsername(userName,"Everywhere","Everywhere");
             Stage window = (Stage) GoodButton.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e)

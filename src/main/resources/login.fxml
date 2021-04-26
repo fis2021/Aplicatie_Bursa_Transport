@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="600" style="-fx-background-color: darkslategrey;" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.LoginController">
+<GridPane alignment="center" hgap="10" prefHeight="400" prefWidth="500.0" style="-fx-background-color: darkslategrey;" vgap="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.LoginController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
-    <Text id="title-text" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+    <Text id="title-text" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
 
-    <Label text="Username:" textFill="#eee8e8" GridPane.rowIndex="2" />
+    <Label text="Username:" textFill="#eee8e8" GridPane.rowIndex="5" />
 
-    <TextField fx:id="usernameField" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <TextField fx:id="usernameField" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-    <Label text="Password:" textFill="#fcf9f9" GridPane.rowIndex="3" />
+    <Label text="Password:" textFill="#fcf9f9" GridPane.rowIndex="6" />
 
-    <PasswordField fx:id="passwordField" prefHeight="22.0" prefWidth="149.0" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    <PasswordField fx:id="passwordField" prefHeight="22.0" prefWidth="149.0" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-    <Text fx:id="registrationMessage" wrappingWidth="74.0" GridPane.rowIndex="1" />
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+    <Text fx:id="registrationMessage" fill="WHITE" wrappingWidth="147.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
         <Button fx:id="button3" mnemonicParsing="false" onMouseClicked="#handle3" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: indianred;" text="Back" textFill="#eeeaea" />
         <Button fx:id="SignInButton" onAction="#handleLogIn" style="-fx-background-color: steelblue;" text="Sign in" textFill="#f5efef" />
     </HBox>
+   <Text fill="#f5f0f0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter username and password to log in!" wrappingWidth="146.13671875" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     <columnConstraints>
         <ColumnConstraints maxWidth="69.0" minWidth="57.0" prefWidth="59.0" />
         <ColumnConstraints maxWidth="148.0" minWidth="136.0" prefWidth="146.0" />
       <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
         <RowConstraints maxHeight="33.0" minHeight="0.0" prefHeight="12.0" />
         <RowConstraints maxHeight="41.0" minHeight="0.0" prefHeight="21.0" />
         <RowConstraints maxHeight="48.0" minHeight="25.0" prefHeight="33.0" />
         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-        <RowConstraints maxHeight="17.0" minHeight="0.0" prefHeight="0.0" />
-        <RowConstraints maxHeight="28.0" minHeight="8.0" prefHeight="26.0" />
-        <RowConstraints maxHeight="29.0" minHeight="0.0" prefHeight="15.0" />
+      <RowConstraints maxHeight="17.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="28.0" minHeight="8.0" prefHeight="26.0" />
+      <RowConstraints maxHeight="29.0" minHeight="0.0" prefHeight="15.0" />
       <RowConstraints maxHeight="16.0" minHeight="0.0" prefHeight="0.0" />
     </rowConstraints>
 </GridPane>
