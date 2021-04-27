@@ -26,11 +26,15 @@ public class GoodListController {
     private Button filter;
     @FXML
     private Button ProposeButton;
+    @FXML
+    private Text message;
     private String username;
     private String listElement;
     private String LocT;
     private String LocF;
+    private int n=0;
     private ArrayList<String> a =new ArrayList<String>();
+    private ArrayList<String> goodInformation= new ArrayList<String>();
     public void setUsername(String username,String LocF,String LocT)
     {   this.LocF=LocF;
          this.LocT=LocT;
@@ -48,6 +52,7 @@ public class GoodListController {
                         {
                             b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
+                            goodInformation.add(s);
                             listView.getItems().add(b);
                         }
                         else
@@ -55,6 +60,7 @@ public class GoodListController {
                         {
                             b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
+                            goodInformation.add(s);
                             listView.getItems().add(b);
                         }
                         else
@@ -62,12 +68,14 @@ public class GoodListController {
                             {
                                 b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                                 a.add(b);
+                                goodInformation.add(s);
                                 listView.getItems().add(b);
                             }
                             else
                         if(splits2[1].compareTo(LocF)==0&&splits2[2].compareTo(LocT)==0) {
                             b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
+                            goodInformation.add(s);
                             listView.getItems().add(b);
                         }
                     }
@@ -76,6 +84,7 @@ public class GoodListController {
         listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                n=listView.getSelectionModel().getSelectedIndex();
                 listElement = listView.getSelectionModel().getSelectedItem();
             }
         });
@@ -99,6 +108,7 @@ public class GoodListController {
     public void handleRefresh(MouseEvent mouseEvent) {
         listView.getItems().removeAll(a);
         a.removeAll(a);
+        goodInformation.removeAll(goodInformation);
         String[] splits;
         String [] splits2;
         String b;
@@ -112,6 +122,7 @@ public class GoodListController {
                         {
                             b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
+                            goodInformation.add(s);
                             listView.getItems().add(b);
                         }
                         else
@@ -119,6 +130,7 @@ public class GoodListController {
                         {
                             b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
+                            goodInformation.add(s);
                             listView.getItems().add(b);
                         }
                         else
@@ -126,12 +138,14 @@ public class GoodListController {
                         {
                             b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
+                            goodInformation.add(s);
                             listView.getItems().add(b);
                         }
                         else
                         if(splits2[1].compareTo(LocF)==0&&splits2[2].compareTo(LocT)==0) {
                             b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
+                            goodInformation.add(s);
                             listView.getItems().add(b);
                         }
                     }
@@ -140,9 +154,11 @@ public class GoodListController {
         listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                n=listView.getSelectionModel().getSelectedIndex();
                 listElement = listView.getSelectionModel().getSelectedItem();
             }
         });
+            message.setText("The page was refreshed!");
 
     }
 
@@ -161,16 +177,19 @@ public class GoodListController {
     }
 
     public void handlePropose(MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/PricePage.fxml"));
-            Parent root = (Parent) loader.load();
-            PricePageController log=loader.getController();
-            log.setUserDetails(username,listElement,LocF,LocT);
-            Stage window = (Stage) ProposeButton.getScene().getWindow();
-            window.setScene(new Scene(root, 500, 400));
-        } catch (IOException e)
-        {
-            e.printStackTrace();
+        if(listElement==null)
+            message.setText("No item selected!");
+        else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/PricePage.fxml"));
+                Parent root = (Parent) loader.load();
+                PricePageController log = loader.getController();
+                log.setUserDetails(username, listElement, LocF, LocT,goodInformation.get(n));
+                Stage window = (Stage) ProposeButton.getScene().getWindow();
+                window.setScene(new Scene(root, 500, 400));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

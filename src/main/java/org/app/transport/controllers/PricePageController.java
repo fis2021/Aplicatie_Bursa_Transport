@@ -17,14 +17,16 @@ public class PricePageController {
     private String username;
     private String listItem;
     private String LocT,LocF;
+    private String goodInfo;
     @FXML
     private ChoiceBox<String> currency;
-    public void setUserDetails(String username,String listItem,String LocF,String LocT)
+    public void setUserDetails(String username,String listItem,String LocF,String LocT,String goodInfo)
     {
         this.username=username;
         this.listItem=listItem;
         this.LocF=LocF;
         this.LocT=LocT;
+        this.goodInfo=goodInfo;
     }
     @FXML
     public void initialize() {
