@@ -4,8 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -14,6 +13,12 @@ import java.io.IOException;
 public class PricePageController {
     @FXML
     private Button returnButton;
+    @FXML
+    private DatePicker date;
+    @FXML
+    private TextField price;
+    @FXML
+    private TextArea info;
     private String username;
     private String listItem;
     private String LocT,LocF;
@@ -44,5 +49,11 @@ public class PricePageController {
         {
             e.printStackTrace();
         }
+    }
+
+    public void handleClear(MouseEvent mouseEvent) {
+       date.getEditor().clear();
+        price.setText("");
+        info.setText("");
     }
 }
