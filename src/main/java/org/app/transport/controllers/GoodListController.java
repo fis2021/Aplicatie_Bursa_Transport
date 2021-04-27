@@ -24,6 +24,8 @@ public class GoodListController {
     private ListView<String> listView;
     @FXML
     private Button filter;
+    @FXML
+    private Button ProposeButton;
     private String username;
     private String listElement;
     private String LocT;
@@ -151,6 +153,20 @@ public class GoodListController {
             FilterPageController log=loader.getController();
             log.setUserName(username);
             Stage window = (Stage) filter.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void handlePropose(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/PricePage.fxml"));
+            Parent root = (Parent) loader.load();
+            PricePageController log=loader.getController();
+            log.setUserDetails(username,listElement);
+            Stage window = (Stage) ProposeButton.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e)
         {
