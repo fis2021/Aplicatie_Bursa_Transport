@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.app.transport.controllers.PricePageController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.PricePageController">
+   <children>
+      <TextField layoutX="187.0" layoutY="156.0" />
+      <ChoiceBox fx:id="currency" layoutX="336.0" layoutY="156.0" prefWidth="150.0" />
+      <DatePicker layoutX="203.0" layoutY="220.0" />
+      <Pane layoutX="112.0" prefHeight="113.0" prefWidth="389.0" style="-fx-background-color: silver;" />
+      <Pane layoutX="111.0" layoutY="281.0" prefHeight="119.0" prefWidth="389.0" style="-fx-background-color: silver;">
+         <children>
+            <Text layoutX="224.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="95.13671875" />
+         </children>
+      </Pane>
+      <Text layoutX="144.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" wrappingWidth="34.13671875" />
+      <Text layoutX="144.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Due date:" />
+      <VBox layoutY="113.0" prefHeight="168.0" prefWidth="112.0" style="-fx-background-color: gray;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="81.0" prefWidth="124.0" style="-fx-background-color: gray;" text="Make an offer!">
+               <graphic>
+                  <FontAwesomeIconView glyphName="" />
+               </graphic>
+            </Button>
+            <Button fx:id="returnButton" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="80.0" prefWidth="74.0" style="-fx-background-color: gray;" text="Return">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BACKWARD" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

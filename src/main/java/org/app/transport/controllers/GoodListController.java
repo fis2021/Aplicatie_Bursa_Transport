@@ -46,27 +46,27 @@ public class GoodListController {
                         splits2 = s.split("-");
                         if(LocF.compareTo("Everywhere")==0&&LocT.compareTo("Everywhere")==0)
                         {
-                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
                             listView.getItems().add(b);
                         }
                         else
                         if(LocF.compareTo("Everywhere")==0&&splits2[2].compareTo(LocT)==0)
                         {
-                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
                             listView.getItems().add(b);
                         }
                         else
                             if(LocT.compareTo("Everywhere")==0&&splits2[1].compareTo(LocF)==0)
                             {
-                                b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                                b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                                 a.add(b);
                                 listView.getItems().add(b);
                             }
                             else
                         if(splits2[1].compareTo(LocF)==0&&splits2[2].compareTo(LocT)==0) {
-                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
                             listView.getItems().add(b);
                         }
@@ -110,27 +110,27 @@ public class GoodListController {
                         splits2 = s.split("-");
                         if(LocF.compareTo("Everywhere")==0&&LocT.compareTo("Everywhere")==0)
                         {
-                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
                             listView.getItems().add(b);
                         }
                         else
                         if(LocF.compareTo("Everywhere")==0&&splits2[2].compareTo(LocT)==0)
                         {
-                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
                             listView.getItems().add(b);
                         }
                         else
                         if(LocT.compareTo("Everywhere")==0&&splits2[1].compareTo(LocF)==0)
                         {
-                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
                             listView.getItems().add(b);
                         }
                         else
                         if(splits2[1].compareTo(LocF)==0&&splits2[2].compareTo(LocT)==0) {
-                            b = splits2[3] + ":" + splits2[1] + "-" + splits2[2];
+                            b =user.getUsername()+ ":" + splits2[1] + "-" + splits2[2]+"("+splits2[0]+")";
                             a.add(b);
                             listView.getItems().add(b);
                         }
@@ -165,7 +165,7 @@ public class GoodListController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/PricePage.fxml"));
             Parent root = (Parent) loader.load();
             PricePageController log=loader.getController();
-            log.setUserDetails(username,listElement);
+            log.setUserDetails(username,listElement,LocF,LocT);
             Stage window = (Stage) ProposeButton.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e)
