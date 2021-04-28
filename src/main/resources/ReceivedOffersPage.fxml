@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.ReceivedOffersPageController">
+   <children>
+      <TreeView fx:id="treeView" layoutX="108.0" prefHeight="320.0" prefWidth="392.0" style="-fx-background-color: seashell;" />
+      <VBox layoutY="106.0" prefHeight="294.0" prefWidth="108.0" style="-fx-background-color: gray;">
+         <children>
+            <Button fx:id="returnButton" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="84.0" prefWidth="116.0" style="-fx-background-color: gray;" text="Return to&#10;home page&#10;">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BACKWARD" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <Pane layoutX="108.0" layoutY="318.0" prefHeight="82.0" prefWidth="392.0" style="-fx-background-color: silver;">
+         <children>
+            <Text layoutX="216.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="149.13671875" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

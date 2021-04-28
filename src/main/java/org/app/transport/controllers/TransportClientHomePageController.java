@@ -56,4 +56,7 @@ public class TransportClientHomePageController {
             e.printStackTrace();
         }
     }
+
+    public void handleReceive(MouseEvent mouseEvent) {
+    }
 }
