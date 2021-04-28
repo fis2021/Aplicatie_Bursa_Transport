@@ -18,6 +18,6 @@ public class Offer {
     }
     public String toString()
     {
-        return transportUsername+"-"+truckingUsername+"-"+price+"-"+dueDate+"-"+infoTrucking+"|"+g.toString();
+        return transportUsername+"~"+truckingUsername+"~"+price+"~"+dueDate+"~"+infoTrucking+"|"+g.toString();
     }
 }
