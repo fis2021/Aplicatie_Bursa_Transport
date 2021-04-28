@@ -6,7 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.app.transport.model.Good;
+import org.app.transport.model.Offer;
+import org.app.transport.model.User;
+import org.app.transport.services.UserService;
 
 import java.io.IOException;
 
@@ -19,6 +24,8 @@ public class PricePageController {
     private TextField price;
     @FXML
     private TextArea info;
+    @FXML
+    private Text message;
     private String username;
     private String listItem;
     private String LocT,LocF;
@@ -55,5 +62,23 @@ public class PricePageController {
        date.getEditor().clear();
         price.setText("");
         info.setText("");
+    }
+
+    public void handleOffer(MouseEvent mouseEvent) {
+        if(date.getValue()!=null&& price.getText()!=null&&currency.getValue()!=null)
+        {
+            User c= UserService.FindTheUser(username);
+            String [] split=listItem.split(":");
+            String [] split2=goodInfo.split("-");
+            Good g=new Good(split2[0],split2[1],split2[2],split2[3],split2[4]);
+            if(info.getText().length()<2)
+                info.setText("No information!");
+            Offer o=new Offer(split[0],username,price.getText()+currency.getValue(),date.getValue().toString(),info.getText(),g);
+            c.setSomething(o.toString());
+            UserService.updateUser(c,username);
+            message.setText("Your offer will be send!");
+        }
+        else
+            message.setText("The fields must be completed!");
     }
 }
