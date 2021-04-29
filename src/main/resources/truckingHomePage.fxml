@@ -17,6 +17,11 @@
                   <FontAwesomeIconView glyphName="TRUCK" size="15" />
                </graphic>
             </Button>
+            <Button fx:id="OfferButton" mnemonicParsing="false" onMouseClicked="#handleOffer" prefHeight="74.0" prefWidth="152.0" style="-fx-background-color: gray;" text="My Offers List" textFill="#fffefe">
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" />
+               </graphic>
+            </Button>
             <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#handlecloseButton" prefHeight="84.0" prefWidth="110.0" style="-fx-background-color: gray;" text="Close" textAlignment="RIGHT" textFill="#f2ebeb">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" />

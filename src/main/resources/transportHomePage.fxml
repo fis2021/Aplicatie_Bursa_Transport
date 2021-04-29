@@ -17,12 +17,17 @@
                   <FontAwesomeIconView glyphName="LIST" />
                </graphic>
             </Button>
-            <Button fx:id="addgoods" mnemonicParsing="false" onMouseClicked="#handleAddgoods" prefHeight="77.0" prefWidth="159.0" style="-fx-background-color: gray;" text="Add goods" textAlignment="CENTER" textFill="#fffbfb">
+            <Button fx:id="addgoods" mnemonicParsing="false" onMouseClicked="#handleAddgoods" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: gray;" text="Add goods" textAlignment="CENTER" textFill="#fffbfb">
                <graphic>
                   <FontAwesomeIconView glyphName="PLUS" />
                </graphic>
             </Button>
-            <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#handle4" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: gray;" text="Close" textFill="#f8f6f6">
+            <Button fx:id="receiveButton" mnemonicParsing="false" onMouseClicked="#handleReceive" prefHeight="57.0" prefWidth="143.0" style="-fx-background-color: gray;" text="Received &#10;offers list&#10;" textFill="#fffefe">
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" />
+               </graphic>
+            </Button>
+            <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#handle4" prefHeight="61.0" prefWidth="123.0" style="-fx-background-color: gray;" text="Close" textFill="#f8f6f6">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" />
                </graphic>

@@ -18,6 +18,8 @@ public class TransportClientHomePageController {
     private Button DisplayGoodsList;
     @FXML
     private Button addgoods;
+    @FXML
+    private Button receiveButton;
     private String userName;
     public void setUserName(String userName)
     {
@@ -50,6 +52,20 @@ public class TransportClientHomePageController {
             AddGoodsController log=loader.getController();
             log.setUser(userName);
             Stage window = (Stage) addgoods.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleReceive(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ReceivedOffersPage.fxml"));
+            Parent root = (Parent) loader.load();
+            ReceivedOffersPageController log=loader.getController();
+            log.setUsername(userName);
+            Stage window = (Stage) receiveButton.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e)
         {
