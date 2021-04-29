@@ -73,7 +73,7 @@ public class PricePageController {
             Good g=new Good(split2[0],split2[1],split2[2],split2[3],split2[4]);
             if(info.getText().length()<2)
                 info.setText("No information!");
-            Offer o=new Offer(split[0],username,price.getText()+" "+currency.getValue(),date.getValue().toString(),info.getText(),g);
+            Offer o=new Offer(split[0],username,price.getText()+" "+currency.getValue(),date.getValue().toString(),info.getText(),"In pending",g);
             c.setSomething(o.toString());
             UserService.updateUser(c,username);
             message.setText("Your offer will be send!");

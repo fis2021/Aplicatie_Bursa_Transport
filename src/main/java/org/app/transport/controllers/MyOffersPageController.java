@@ -43,11 +43,9 @@ public class MyOffersPageController {
                 TreeItem<String> leafItem2 = new TreeItem<>("Information about delivery");
                 TreeItem<String> leaf0 = new TreeItem<>(split4[3] + ":" + split4[1] + "-" + split4[2] + "(" + split4[0] + ")");
                 leafItem.getChildren().add(leaf0);
-                TreeItem<String> leaf1 = new TreeItem<>(split3[1] + " request the price:" + split3[2] + ", and will make the delivery on:" + split3[3]);
-                leafItem1.getChildren().add(leaf1);
                 TreeItem<String> leaf2 = new TreeItem<>("Only if the offer was accepted!");
                 leafItem2.getChildren().add(leaf2);
-                TreeItem<String> leaf3 = new TreeItem<>("In pending!");
+                TreeItem<String> leaf3 = new TreeItem<>(split3[5]+"!");
                leafItem0.getChildren().add(leaf3);
                 branchItem.getChildren().addAll(leafItem0, leafItem, leafItem1, leafItem2);
                 rootItem.getChildren().add(branchItem);

@@ -23,11 +23,6 @@
                   <FontAwesomeIconView glyphName="FILTER" />
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="83.0" prefWidth="110.0" style="-fx-background-color: gray;" text="View &#10;details" textFill="#f5f2f2">
-               <graphic>
-                  <FontAwesomeIconView glyphName="INFO" />
-               </graphic>
-            </Button>
             <Button fx:id="ProposeButton" mnemonicParsing="false" onMouseClicked="#handlePropose" prefHeight="92.0" prefWidth="122.0" style="-fx-background-color: gray;" text="Propose &#10;   offer" textFill="#f2eeee">
                <graphic>
                   <FontAwesomeIconView glyphName="USD" />
