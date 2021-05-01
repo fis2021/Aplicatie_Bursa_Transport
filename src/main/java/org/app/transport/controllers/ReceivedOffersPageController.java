@@ -22,8 +22,13 @@ public class ReceivedOffersPageController {
     @FXML
     private Button returnButton;
     @FXML
+    public Button acceptButton;
+    @FXML
+    public Button rejectButton;
+    @FXML
     private Text message;
     private String username;
+
     public void setUsername(String username)
     {
         this.username=username;
