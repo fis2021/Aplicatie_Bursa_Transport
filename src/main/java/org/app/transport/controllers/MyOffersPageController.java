@@ -60,7 +60,7 @@ public class MyOffersPageController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/truckingHomePage.fxml"));
             Parent root = (Parent) loader.load();
-             TruckingHomePageController log=loader.getController();
+            TruckingHomePageController log=loader.getController();
             log.setUserName(username);
             Stage window = (Stage) returnButton.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));

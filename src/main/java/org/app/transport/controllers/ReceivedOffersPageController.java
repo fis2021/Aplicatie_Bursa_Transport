@@ -31,6 +31,8 @@ public class ReceivedOffersPageController {
 
     public void setUsername(String username)
     {
+
+
         this.username=username;
         TreeItem<String> rootItem = new TreeItem<>("Received offers:");
         for(User user: UserService.userRepository.find())
@@ -50,14 +52,58 @@ public class ReceivedOffersPageController {
                             leafItem.getChildren().add(leaf0);
                             branchItem.getChildren().addAll(leafItem, leafItem1, leafItem2);
                             rootItem.getChildren().add(branchItem);
+
+                            setButtonsDisabled();
+
+                            if(split3[5].compareTo("In pending") == 0) {
+                                treeView.getSelectionModel().selectedItemProperty().addListener((v, oldVal, newVal) -> {
+                                    if (newVal.equals(branchItem)) {
+
+                                        setButtonsEnabled();
+
+                                        acceptButton.setOnAction(e -> {
+                                            message.setText("You accepted the offer!");
+                                            split3[5] = "Accepted";
+                                            user.setAccept(s);
+                                            UserService.updateUser(user,user.getUsername());
+                                            setButtonsDisabled();
+                                        });
+
+
+                                        rejectButton.setOnAction(e -> {
+                                            message.setText("You rejected the offer!");
+                                            split[5] = "Rejected";
+                                            user.setAccept(s);
+                                            UserService.updateUser(user,user.getUsername());
+                                            setButtonsDisabled();
+                                        });
+                                    }
+                                });
+                            }
+
                         }
-                        }
+                    }
                 }
             }
+
+
+
         treeView.setRoot(rootItem);
         if(rootItem.getChildren().isEmpty())
             message.setText("You do not received any offer!");
     }
+
+
+public void setButtonsDisabled(){
+    acceptButton.setDisable(true);
+    rejectButton.setDisable(true);
+}
+
+public void setButtonsEnabled(){
+    acceptButton.setDisable(false);
+    rejectButton.setDisable(false);
+}
+
     public void handleReturn(MouseEvent mouseEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/transportHomePage.fxml"));
