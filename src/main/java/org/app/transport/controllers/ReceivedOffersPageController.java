@@ -59,13 +59,16 @@ public class ReceivedOffersPageController {
                                 treeView.getSelectionModel().selectedItemProperty().addListener((v, oldVal, newVal) -> {
                                     if (newVal.equals(branchItem)) {
 
+
                                         setButtonsEnabled();
+
+                                        message.setText("You have to accept or reject the offer!");
 
                                         acceptButton.setOnAction(e -> {
                                             message.setText("You accepted the offer!");
                                             split3[5] = "Accepted";
                                             user.setAccept(s);
-                                            UserService.updateUser(user,user.getUsername());
+                                            UserService.updateUser(user, user.getUsername());
                                             setButtonsDisabled();
                                         });
 
@@ -73,12 +76,22 @@ public class ReceivedOffersPageController {
                                         rejectButton.setOnAction(e -> {
                                             message.setText("You rejected the offer!");
                                             split[5] = "Rejected";
-                                            user.setAccept(s);
-                                            UserService.updateUser(user,user.getUsername());
+                                            user.setReject(s);
+                                            UserService.updateUser(user, user.getUsername());
                                             setButtonsDisabled();
                                         });
+
+
                                     }
                                 });
+
+                            }else if(split3[5].compareTo("Accepted") == 0){
+                                setButtonsDisabled();
+                                message.setText("You accepted the offer!");
+
+                            }else if(split3[5].compareTo("Rejected") == 0){
+                                setButtonsDisabled();
+                                message.setText("You accepted the offer!");
                             }
 
                         }
