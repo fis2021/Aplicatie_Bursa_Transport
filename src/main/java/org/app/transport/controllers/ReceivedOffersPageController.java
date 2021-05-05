@@ -55,46 +55,46 @@ public class ReceivedOffersPageController {
 
                             setButtonsDisabled();
 
-                            if(split3[5].compareTo("In pending") == 0) {
+
                                 treeView.getSelectionModel().selectedItemProperty().addListener((v, oldVal, newVal) -> {
                                     if (newVal.equals(branchItem)) {
+                                        if(split3[5].compareTo("In pending") == 0) {
+
+                                            setButtonsEnabled();
+
+                                            message.setText("You have to accept or reject the offer!");
+
+                                            acceptButton.setOnAction(e -> {
+                                                message.setText("You accepted the offer!");
+                                                //split3[5] = "Accepted";
+                                                user.setAccept(s);
+                                                UserService.updateUser(user, user.getUsername());
+                                                setButtonsDisabled();
+                                            });
 
 
-                                        setButtonsEnabled();
+                                            rejectButton.setOnAction(e -> {
+                                                message.setText("You rejected the offer!");
+                                                //split[5] = "Rejected";
+                                                user.setReject(s);
+                                                UserService.updateUser(user, user.getUsername());
+                                                setButtonsDisabled();
+                                            });
 
-                                        message.setText("You have to accept or reject the offer!");
-
-                                        acceptButton.setOnAction(e -> {
+                                        }else if(split3[5].compareTo("Accepted") == 0){
+                                            setButtonsDisabled();
                                             message.setText("You accepted the offer!");
-                                            split3[5] = "Accepted";
-                                            user.setAccept(s);
-                                            UserService.updateUser(user, user.getUsername());
+
+                                        }else if(split3[5].compareTo("Rejected") == 0){
                                             setButtonsDisabled();
-                                        });
-
-
-                                        rejectButton.setOnAction(e -> {
                                             message.setText("You rejected the offer!");
-                                            split[5] = "Rejected";
-                                            user.setReject(s);
-                                            UserService.updateUser(user, user.getUsername());
-                                            setButtonsDisabled();
-                                        });
-
-
+                                        }
                                     }
                                 });
 
-                            }else if(split3[5].compareTo("Accepted") == 0){
-                                setButtonsDisabled();
-                                message.setText("You accepted the offer!");
-
-                            }else if(split3[5].compareTo("Rejected") == 0){
-                                setButtonsDisabled();
-                                message.setText("You accepted the offer!");
                             }
 
-                        }
+
                     }
                 }
             }
