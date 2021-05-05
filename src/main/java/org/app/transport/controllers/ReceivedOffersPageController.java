@@ -65,7 +65,7 @@ public class ReceivedOffersPageController {
                                             message.setText("You have to accept or reject the offer!");
 
                                             acceptButton.setOnAction(e -> {
-                                                message.setText("You accepted the offer!");
+                                                message.setText("You accepted the offer!!");
                                                 //split3[5] = "Accepted";
                                                 user.setAccept(s);
                                                 UserService.updateUser(user, user.getUsername());
