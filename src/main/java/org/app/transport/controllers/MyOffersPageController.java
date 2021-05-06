@@ -52,7 +52,7 @@ public class MyOffersPageController {
                 //leaf to show the status
                 TreeItem<String> leaf3 = new TreeItem<>(split3[5]+"!");
                 //leaf to show the price and due date
-                TreeItem<String> leaf1 = new TreeItem<>("Price: " + split3[2] + "; Due date: " + split3[3]);
+                TreeItem<String> leaf1 = new TreeItem<>("Transportation price: " + split3[2] + "; Due date: " + split3[3]);
 
                 if(split3[5].compareTo("Accepted") == 0){
                     leaf21.setValue("Detailed address: " + split4[4]);
