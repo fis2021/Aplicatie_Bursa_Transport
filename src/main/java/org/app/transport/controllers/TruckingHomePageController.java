@@ -16,6 +16,8 @@ public class TruckingHomePageController {
     @FXML
     private Button  GoodButton;
     @FXML
+    private Button  TransactionsButton;
+    @FXML
     private Button  OfferButton;
     private String userName;
    public void setUserName(String userName)
@@ -49,6 +51,18 @@ public class TruckingHomePageController {
             MyOffersPageController log=loader.getController();
             log.setUsername(userName);
             Stage window = (Stage) OfferButton.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleTransactions(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MyTransactionsPage.fxml"));
+            Parent root = (Parent) loader.load();
+            Stage window = (Stage) TransactionsButton.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e)
         {

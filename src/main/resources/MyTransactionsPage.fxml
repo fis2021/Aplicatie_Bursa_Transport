@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: seashell;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.MyTransactionsPageController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="112.0" style="-fx-background-color: gray;">
+         <children>
+            <Button fx:id="returnButton" alignment="CENTER" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="78.0" prefWidth="130.0" style="-fx-background-color: gray;" text="Return to&#10;Home Page&#10;">
+               <graphic>
+                  <FontAwesomeIconView glyphName="BACKWARD" />
+               </graphic>
+            </Button></children></AnchorPane>
+   </children>
+</AnchorPane>
