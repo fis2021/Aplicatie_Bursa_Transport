@@ -62,6 +62,8 @@ public class TruckingHomePageController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/MyTransactionsPage.fxml"));
             Parent root = (Parent) loader.load();
+            MyTransactionsPageController log=loader.getController();
+            log.setUsername(userName);
             Stage window = (Stage) TransactionsButton.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e)

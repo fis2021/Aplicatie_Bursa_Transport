@@ -3,15 +3,44 @@
 <?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: seashell;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.MyTransactionsPageController">
-   <children>
-      <AnchorPane prefHeight="400.0" prefWidth="112.0" style="-fx-background-color: gray;">
-         <children>
-            <Button fx:id="returnButton" alignment="CENTER" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="78.0" prefWidth="130.0" style="-fx-background-color: gray;" text="Return to&#10;Home Page&#10;">
-               <graphic>
-                  <FontAwesomeIconView glyphName="BACKWARD" />
-               </graphic>
-            </Button></children></AnchorPane>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: seashell;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.MyTransactionsPageController">
+    <children>
+        <VBox layoutY="1.0" prefHeight="409.0" prefWidth="130.0" style="-fx-background-color: gray;">
+            <children>
+                <Button fx:id="ReturnHome" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="74.0" prefWidth="120.0" style="-fx-background-color: gray;" text="Return To &#10;Home Page" textFill="#f2f0f0">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="BACKWARD" />
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
+        <Pane layoutX="130.0" layoutY="360.0" prefHeight="49.0" prefWidth="374.0" style="-fx-background-color: silver;">
+            <children>
+                <Text fx:id="message" layoutX="156.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="155.0" />
+            </children>
+        </Pane>
+      <TabPane layoutX="130.0" prefHeight="359.0" prefWidth="374.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Accepted">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="374.0">
+                     <children>
+                          <ListView fx:id="listView" layoutX="6.0" prefHeight="359.0" prefWidth="374.0" style="-fx-background-color: seashell;" />
+                        <Button fx:id="ClosedTransaction" onMouseClicked="#handleClose" layoutX="287.0" layoutY="282.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Close" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Closed">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="listView2" layoutY="-1.0" prefHeight="331.0" prefWidth="374.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+    </children>
 </AnchorPane>
