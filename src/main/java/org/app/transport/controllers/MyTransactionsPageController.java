@@ -102,14 +102,15 @@ public class MyTransactionsPageController {
                         for (String s : split) {
                             String[] split2 = s.split("\\|");
                             String[] split3 = split2[0].split("~");
-                            UserService.updateStatus(user, "Closed");
+                            ClosedTransaction.setOnAction(e -> {
+                                message.setText("You accepted the offer!!");
+                                user.setClose(s);
+                                UserService.updateUser(user, user.getUsername());
+                            });
+                            UserService.updateStatus(user, "Closed Offer");
+                            user.setClose(s);
                             System.out.println(Arrays.toString(split3));
                         }
-//            user.setAccept(s);
-//            UserService.updateUser(user, user.getUsername());
-//            setButtonsDisabled();
-                        //listElement.replace("Accepted", "Closed");
-                        //System.out.println(listElement);
                     }
                 }
         }

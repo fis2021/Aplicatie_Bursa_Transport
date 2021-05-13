@@ -28,7 +28,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="374.0">
                      <children>
                           <ListView fx:id="listView" layoutX="6.0" prefHeight="359.0" prefWidth="374.0" style="-fx-background-color: seashell;" />
-                        <Button fx:id="ClosedTransaction" onMouseClicked="#handleClose" layoutX="287.0" layoutY="282.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="73.0" text="Close" />
+                        <Button fx:id="ClosedTransaction" layoutX="287.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#handleClose" prefHeight="34.0" prefWidth="73.0" text="Close" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -37,6 +37,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <ListView fx:id="listView2" layoutY="-1.0" prefHeight="331.0" prefWidth="374.0" />
+                        <Button layoutX="267.0" layoutY="280.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="93.0" text="Give a rating" />
                      </children></AnchorPane>
             </content>
           </Tab>

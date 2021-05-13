@@ -166,7 +166,7 @@ public class User {
 
         for (String s : split) {
             if(s.compareTo(offer) == 0) {
-                split[k] = split[k].replace("In pending","Rejected");
+                split[k] = split[k].replace("Accepted","Closed");
 
             }
             k++;
@@ -187,3 +187,5 @@ public class User {
     }
 
 }
+
+
