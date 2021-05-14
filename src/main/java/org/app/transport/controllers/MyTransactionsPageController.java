@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -16,7 +15,6 @@ import org.app.transport.model.User;
 import org.app.transport.services.UserService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyTransactionsPageController {
@@ -35,6 +33,8 @@ public class MyTransactionsPageController {
     private String LocT;
     private String LocF;
     private int n = 0;
+    @FXML
+    private Button GiveRating;
 
     public void setUsername(String username) {
         this.LocF = LocF;
@@ -113,6 +113,23 @@ public class MyTransactionsPageController {
                         }
                     }
                 }
+        }
+    }
+
+    public void handleRating(MouseEvent mouseEvent) {
+        if (listElement == null)
+            message.setText("No item selected!");
+        else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/TruckingGiveRating.fxml"));
+                Parent root = (Parent) loader.load();
+                TruckingGiveRatingController log = loader.getController();
+                log.setUsername(username);
+                Stage window = (Stage) GiveRating.getScene().getWindow();
+                window.setScene(new Scene(root, 500, 400));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
