@@ -9,5 +9,6 @@
         <module name="Aplicatie_Bursa_Transport" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>
