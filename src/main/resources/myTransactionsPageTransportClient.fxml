@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="500.0"
+            style="-fx-background-color: seashell;" xmlns="http://javafx.com/javafx/11.0.1"
+            fx:controller="org.app.transport.controllers.myTransactionsPageTransportClientController">
+    <children>
+        <VBox layoutY="1.0" prefHeight="409.0" prefWidth="130.0" style="-fx-background-color: gray;">
+            <children>
+                <Button fx:id="ReturnHome" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="74.0" prefWidth="120.0" style="-fx-background-color: gray;" text="Return To &#10;Home Page" textFill="#f2f0f0">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="BACKWARD" />
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
+        <Pane layoutX="130.0" layoutY="360.0" prefHeight="49.0" prefWidth="374.0" style="-fx-background-color: silver;">
+            <children>
+                <Text fx:id="message" layoutX="156.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="155.0" />
+            </children>
+        </Pane>
+        <TabPane layoutX="130.0" prefHeight="359.0" prefWidth="374.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Transactions List">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="374.0">
+                            <children>
+                                <ListView fx:id="listView" layoutX="6.0" prefHeight="359.0" prefWidth="374.0" style="-fx-background-color: seashell;" />
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

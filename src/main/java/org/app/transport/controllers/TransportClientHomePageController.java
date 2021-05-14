@@ -20,6 +20,8 @@ public class TransportClientHomePageController {
     private Button addgoods;
     @FXML
     private Button receiveButton;
+    @FXML
+    private Button closedTransactions;
     private String userName;
     public void setUserName(String userName)
     {
@@ -72,4 +74,21 @@ public class TransportClientHomePageController {
             e.printStackTrace();
         }
     }
+
+    public void handleTransactionsList(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/myTransactionsPageTransportClient.fxml"));
+            Parent root = (Parent) loader.load();
+            myTransactionsPageTransportClientController log=loader.getController();
+            log.setUsername(userName);
+            Stage window = (Stage) closedTransactions.getScene().getWindow();
+            window.setScene(new Scene(root, 500, 400));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
