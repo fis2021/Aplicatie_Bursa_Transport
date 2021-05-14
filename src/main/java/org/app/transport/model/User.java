@@ -157,4 +157,35 @@ public class User {
 
     }
 
+    public void setClose(String offer){
+
+        String b="*";
+        boolean sw=true;
+        String[] split = good.split("/");
+        int k = 0;
+
+        for (String s : split) {
+            if(s.compareTo(offer) == 0) {
+                split[k] = split[k].replace("Accepted","Closed");
+
+            }
+            k++;
+        }
+
+        for(String s:split)
+        {
+            if(sw)
+            {
+                b=b+s;
+                sw=false;
+            }
+            else
+                b=b+"/"+s;
+        }
+        b=b.substring(1);
+        good = b;
+    }
+
 }
+
+

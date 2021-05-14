@@ -49,6 +49,12 @@ public class UserService {
         //userRepository.remove(eq("username",username));
         //userRepository.insert(p);
     }
+
+    public static void updateStatus(User c, String state)
+    {
+        userRepository.update(eq("offerState", state),c);
+    }
+
     public static boolean checkIsInDataBase(String username){
         boolean b=false;
         for (User user : userRepository.find()) {
