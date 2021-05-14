@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TruckingGiveRatingController">
+   <children>
+      <Rating layoutX="198.0" layoutY="114.0" prefHeight="33.0" prefWidth="177.0" rating="1.0" updateOnHover="true" />
+      <Button layoutX="229.0" layoutY="240.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" text="Give rating!" />
+      <Button fx:id="ReturnHome" layoutX="10.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#handleReturn" text="Back" />
+   </children>
+</AnchorPane>
