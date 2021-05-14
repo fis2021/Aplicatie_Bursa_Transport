@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TransportClientHomePageController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TransportClientHomePageController">
    <children>
-      <VBox layoutY="91.0" prefHeight="309.0" prefWidth="159.0" style="-fx-background-color: gray;">
+      <VBox layoutY="90.0" prefHeight="309.0" prefWidth="159.0" style="-fx-background-color: gray;">
          <children>
             <Button fx:id="DisplayGoodsList" mnemonicParsing="false" onMouseClicked="#handleGoodsList" prefHeight="70.0" prefWidth="177.0" style="-fx-background-color: gray;" text="My goods list" textFill="#f8f6f6">
                <graphic>
                   <FontAwesomeIconView glyphName="LIST" />
                </graphic>
             </Button>
-            <Button fx:id="addgoods" mnemonicParsing="false" onMouseClicked="#handleAddgoods" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: gray;" text="Add goods" textAlignment="CENTER" textFill="#fffbfb">
+            <Button fx:id="addgoods" mnemonicParsing="false" onMouseClicked="#handleAddgoods" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: gray;" text="Add goods" textAlignment="CENTER" textFill="#fffbfb">
                <graphic>
                   <FontAwesomeIconView glyphName="PLUS" />
                </graphic>
             </Button>
-            <Button fx:id="receiveButton" mnemonicParsing="false" onMouseClicked="#handleReceive" prefHeight="57.0" prefWidth="143.0" style="-fx-background-color: gray;" text="Received &#10;offers list&#10;" textFill="#fffefe">
+            <Button fx:id="receiveButton" mnemonicParsing="false" onMouseClicked="#handleReceive" prefHeight="58.0" prefWidth="167.0" style="-fx-background-color: gray;" text="Received &#10;offers list&#10;" textFill="#fffefe">
                <graphic>
                   <FontAwesomeIconView glyphName="LIST" />
                </graphic>
             </Button>
-            <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#handle4" prefHeight="61.0" prefWidth="123.0" style="-fx-background-color: gray;" text="Close" textFill="#f8f6f6">
+            <Button fx:id="closedTransactions" mnemonicParsing="false" onMouseClicked="#handleTransactionsList" prefHeight="48.0" prefWidth="159.0" style="-fx-background-color: gray;" text="Closed Transactions" textFill="#fffefe">
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" />
+               </graphic>
+            </Button>
+            <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#handle4" prefHeight="61.0" prefWidth="166.0" style="-fx-background-color: gray;" text="Close" textFill="#f8f6f6">
                <graphic>
                   <FontAwesomeIconView glyphName="CLOSE" />
                </graphic>
