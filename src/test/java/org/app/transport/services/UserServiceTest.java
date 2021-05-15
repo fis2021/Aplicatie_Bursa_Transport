@@ -3,6 +3,7 @@ package org.app.transport.services;
 import org.apache.commons.io.FileUtils;
 import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
+import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.model.User;
 import org.junit.jupiter.api.AfterEach;
@@ -33,5 +34,17 @@ class UserServiceTest {
     void testDatabaseIsInitializedAndNoUserIsPersisted() {
         assertThat(UserService.getAllUsers()).isNotNull();
         assertThat(UserService.getAllUsers()).isEmpty();
+    }
+    @Test
+    @DisplayName("User is successfully persisted to Database")
+    void testUserIsAddedToDatabase() throws UsernameAlreadyExistsException, IncorrectUsername, IncorrectPassword, RoleException {
+        UserService.addUser(ADMIN, ADMIN, ADMIN,ADMIN);
+        assertThat(UserService.getAllUsers()).isNotEmpty();
+        assertThat(UserService.getAllUsers()).size().isEqualTo(1);
+        User user = UserService.getAllUsers().get(0);
+        assertThat(user).isNotNull();
+        assertThat(user.getUsername()).isEqualTo(ADMIN);
+        assertThat(user.getPassword()).isEqualTo(UserService.encodePassword(ADMIN, ADMIN));
+        assertThat(user.getRole()).isEqualTo(ADMIN);
     }
 }
