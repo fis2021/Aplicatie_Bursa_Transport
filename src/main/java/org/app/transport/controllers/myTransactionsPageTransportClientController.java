@@ -36,25 +36,33 @@ public class myTransactionsPageTransportClientController {
     public void setUsername(String username) {
         this.username = username;
         User c = UserService.FindTheUser(username);
-        if(c.getGood().isEmpty()||c.getGood().compareTo("*")==0)
-            message.setText("No element in the list");
-        else {
-            String[] splits = c.getGood().split("/");
-            for (String s : splits) {
-                System.out.println(Arrays.toString(splits));
+
+        String[] split = c.getGood().split("/");
+        String b1, b2;
+
+        for (String s : split) {
+            if (s.compareTo("*") != 0 && s.compareTo("") != 0) {
                 String[] split2 = s.split("\\|");
                 String[] split3 = split2[0].split("~");
-                if(split3[5].equals("Closed"))
-                    listView.getItems().add(s);
-            }
-            listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    listItem = listView.getSelectionModel().getSelectedItem();
+
+                if (split3[5].equals("Closed")) {
+                    b1 = split3[0] + " " + split3[1] + " " + split3[2] + " " + split3[3] + " " + split3[4];
+                    listView.getItems().add(b1);
                 }
-            });
+            }
         }
+
+            listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed (ObservableValue < ? extends String > observableValue, String s, String t1){
+                n = listView.getSelectionModel().getSelectedIndex();
+                listElement = listView.getSelectionModel().getSelectedItem();
+            }
+        });
     }
+
+
+
 
     public void handleReturn(MouseEvent mouseEvent) {
         try {
