@@ -107,7 +107,7 @@ public class MyTransactionsPageController {
                                 user.setClose(s);
                                 UserService.updateUser(user, user.getUsername());
                             });
-                            UserService.updateStatus(user, "Closed Offer");
+                            UserService.updateStatus(user, "Closed");
                             user.setClose(s);
                             System.out.println(Arrays.toString(split3));
                         }
