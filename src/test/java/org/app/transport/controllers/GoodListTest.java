@@ -52,6 +52,16 @@ class GoodListTest {
         robot.clickOn("#refresh");
         Assertions.assertThat(robot.lookup("#message").queryText()).hasText("The page was refreshed!");
         Assertions.assertThat(robot.lookup("#listView").queryListView().getItems().get(1)).isEqualTo("apa1:Arad-Pecica(2 tone)");
+        robot.clickOn("#filter");
+        robot.clickOn("#choiceBox1").clickOn("Arad");
+        robot.clickOn("#choiceBox2").scroll(100);
+        robot.clickOn("Timisoara");
+        robot.clickOn("#filter");
+        Assertions.assertThat(robot.lookup("#listView").queryListView().getItems().get(0)).isEqualTo("apa:Arad-Timisoara(3 tone)");
+        Assertions.assertThat(robot.lookup("#listView").queryListView().getItems().size()).isEqualTo(1);
+        robot.clickOn("#ProposeButton");
+        Assertions.assertThat(robot.lookup("#message").queryText()).hasText("No item selected!");
+        robot.clickOn("#listView").clickOn("apa:Arad-Timisoara(3 tone)");
 
     }
 }
