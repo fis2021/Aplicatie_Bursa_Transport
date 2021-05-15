@@ -2,6 +2,7 @@ package org.app.transport.services;
 
 import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
+import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.model.User;
 import org.dizitart.no2.Nitrite;
@@ -30,10 +31,11 @@ public class UserService {
             userRepository = database.getRepository(User.class);
 
     }
-    public static void addUser(String username, String password, String role, String good) throws UsernameAlreadyExistsException,IncorrectUsername, IncorrectPassword {
+    public static void addUser(String username, String password, String role, String good) throws UsernameAlreadyExistsException, IncorrectUsername, IncorrectPassword, RoleException {
         checkUserDoesNotAlreadyExist(username);
         if(username.length()<3) throw new IncorrectUsername();
         if(password.length()<3) throw new IncorrectPassword();
+        if(role==null) throw new RoleException();
         userRepository.insert(new User(username, encodePassword(username, password), role,good));
     }
     public static List<User> getAllUsers() {

@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
+import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.services.UserService;
 
@@ -47,6 +48,10 @@ public class RegisterController {
             registrationMessage.setText(e.getMessage());
         }
         catch (IncorrectPassword e)
+        {
+            registrationMessage.setText(e.getMessage());
+        }
+        catch (RoleException e)
         {
             registrationMessage.setText(e.getMessage());
         }
