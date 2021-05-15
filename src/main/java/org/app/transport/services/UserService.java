@@ -14,16 +14,17 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 import static org.app.transport.services.FileSystemService.getPathToFile;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class UserService {
     public static ObjectRepository<User> userRepository;
-
+    public static Nitrite database;
     public static void initDatabase() {
-
-            Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+             database = Nitrite.builder()
                     .filePath(getPathToFile("myData7.db").toFile())
                     .openOrCreate("test", "test");
             userRepository = database.getRepository(User.class);
@@ -35,7 +36,9 @@ public class UserService {
         if(password.length()<3) throw new IncorrectPassword();
         userRepository.insert(new User(username, encodePassword(username, password), role,good));
     }
-
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
+    }
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
