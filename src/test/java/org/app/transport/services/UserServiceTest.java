@@ -66,4 +66,13 @@ class UserServiceTest {
         UserService.updateUser(user,user.getUsername());
         assertThat(user.getGood()).isEqualTo("admin");
     }
+    @Test
+    @DisplayName("Find the user")
+    void FindTheUser() throws IncorrectUsername, UsernameAlreadyExistsException, IncorrectPassword, RoleException {
+        UserService.addUser(ADMIN, ADMIN, ADMIN,ADMIN);
+        UserService.addUser(ADMIN+"ul", ADMIN, ADMIN,ADMIN);
+        User user = UserService.getAllUsers().get(0);
+        User user1 =UserService.FindTheUser(user.getUsername());
+        assertThat(user.equals(user1));
+    }
 }
