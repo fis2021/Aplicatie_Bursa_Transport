@@ -13,11 +13,11 @@
 
     <Label text="Username:" textFill="#f8f5f5" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-    <TextField fx:id="usernameField" id="usernameField" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <TextField fx:id="usernameField" id="username" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
     <Label text="Password:" textFill="#f2eded" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
-    <PasswordField fx:id="passwordField" id="passwordField" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <PasswordField fx:id="passwordField" id="password" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
     <Label text="Role:" textFill="#fffbfb" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
