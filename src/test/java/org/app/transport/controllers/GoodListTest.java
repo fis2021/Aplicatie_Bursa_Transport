@@ -62,6 +62,22 @@ class GoodListTest {
         robot.clickOn("#ProposeButton");
         Assertions.assertThat(robot.lookup("#message").queryText()).hasText("No item selected!");
         robot.clickOn("#listView").clickOn("apa:Arad-Timisoara(3 tone)");
-
+        robot.clickOn("#ProposeButton");
+        robot.clickOn("#price");
+        robot.write("130");
+        robot.clickOn("#currency").clickOn("lei");
+        robot.clickOn("#date");
+        robot.write("12/05/2021");
+        robot.clickOn("#clear");
+        robot.clickOn("#offerButton");
+        Assertions.assertThat(robot.lookup("#message").queryText()).hasText("The fields must be completed!");
+        robot.clickOn("#date");
+        robot.write("5/20/2021");
+        robot.clickOn("#offerButton");
+        robot.clickOn("#price");
+        robot.write("130");
+        robot.clickOn("#offerButton");
+        Assertions.assertThat(robot.lookup("#message").queryText()).hasText("Your offer will be send!");
+        assertThat(UserService.getAllUsers().get(1).getGood()).isEqualTo("apa~apa2~130 lei~2021-05-20~No information!~In pending|3 tone-Arad-Timisoara-ROM-Str nr.1");
     }
 }
