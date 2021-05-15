@@ -1,13 +1,9 @@
 package org.app.transport.controllers;
 
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,13 +11,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.app.transport.model.Good;
 import org.app.transport.model.User;
-import org.app.transport.services.UserService;
+import org.app.transport.UserService;
 
-import javax.swing.*;
 import java.io.IOException;
-import java.util.Iterator;
 
 
 public class MyGoodsList {

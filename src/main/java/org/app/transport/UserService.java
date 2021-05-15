@@ -1,4 +1,4 @@
-package org.app.transport.services;
+package org.app.transport;
 
 import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
@@ -6,18 +6,14 @@ import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.model.User;
 import org.dizitart.no2.Nitrite;
-import org.dizitart.no2.RemoveOptions;
-import org.dizitart.no2.exceptions.NitriteIOException;
-import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Objects;
-import static org.app.transport.services.FileSystemService.getPathToFile;
+
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class UserService {
@@ -26,7 +22,7 @@ public class UserService {
     public static void initDatabase() {
         FileSystemService.initDirectory();
              database = Nitrite.builder()
-                    .filePath(getPathToFile("myData7.db").toFile())
+                    .filePath(FileSystemService.getPathToFile("myData7.db").toFile())
                     .openOrCreate("test", "test");
             userRepository = database.getRepository(User.class);
 

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import org.app.transport.model.Good;
 import org.app.transport.model.Offer;
 import org.app.transport.model.User;
-import org.app.transport.services.UserService;
+import org.app.transport.UserService;
 
 import java.io.IOException;
 import java.time.LocalDate;

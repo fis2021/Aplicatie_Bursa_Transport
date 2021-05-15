@@ -1,6 +1,5 @@
 package org.app.transport.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,14 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
 import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
-import org.app.transport.services.UserService;
+import org.app.transport.UserService;
 
 import java.io.IOException;
 

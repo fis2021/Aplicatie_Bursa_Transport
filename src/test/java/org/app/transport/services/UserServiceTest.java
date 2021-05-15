@@ -1,6 +1,8 @@
 package org.app.transport.services;
 
 import org.apache.commons.io.FileUtils;
+import org.app.transport.FileSystemService;
+import org.app.transport.UserService;
 import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
 import org.app.transport.exceptions.RoleException;
