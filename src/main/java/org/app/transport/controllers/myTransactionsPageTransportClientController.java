@@ -8,15 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.app.transport.model.User;
-import org.app.transport.services.UserService;
+import org.app.transport.UserService;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 public class myTransactionsPageTransportClientController {
     @FXML

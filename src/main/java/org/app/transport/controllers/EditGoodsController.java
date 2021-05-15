@@ -1,9 +1,7 @@
 package org.app.transport.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,11 +11,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.app.transport.model.Good;
 import org.app.transport.model.User;
-import org.app.transport.services.UserService;
+import org.app.transport.UserService;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class EditGoodsController  {
     @FXML

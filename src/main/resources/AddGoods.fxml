@@ -10,11 +10,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.AddGoodsController">
    <children>
-      <TextField fx:id="weight" layoutX="245.0" layoutY="102.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
-      <TextField fx:id="locationFrom" layoutX="245.0" layoutY="144.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
-      <TextField fx:id="locationTo" layoutX="245.0" layoutY="189.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
-      <TextField fx:id="companyName" layoutX="245.0" layoutY="237.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
-      <TextField fx:id="detailedAddress" layoutX="245.0" layoutY="276.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
+      <TextField fx:id="weight" id="weight" layoutX="245.0" layoutY="102.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
+      <TextField fx:id="locationFrom" id="locationFrom" layoutX="245.0" layoutY="144.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
+      <TextField fx:id="locationTo" id="locationTo" layoutX="245.0" layoutY="189.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
+      <TextField fx:id="companyName" id="companyName" layoutX="245.0" layoutY="237.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
+      <TextField fx:id="detailedAddress" id="detailedAddress" layoutX="245.0" layoutY="276.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: floralwhite;" />
       <Text layoutX="157.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location from:" wrappingWidth="79.13671875" />
       <Text layoutX="190.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight:" wrappingWidth="44.13671875" />
       <Text layoutX="165.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location to:" />
@@ -22,12 +22,12 @@
       <Text layoutX="144.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detailed address:" />
       <VBox layoutY="79.0" prefHeight="244.0" prefWidth="124.0" style="-fx-background-color: gray;">
          <children>
-            <Button fx:id="addInList" mnemonicParsing="false" onMouseClicked="#handleAdd" prefHeight="113.0" prefWidth="126.0" style="-fx-background-color: gray;" text="Add in list" textFill="#f5eeee">
+            <Button fx:id="addInList" id="addInList" mnemonicParsing="false" onMouseClicked="#handleAdd" prefHeight="113.0" prefWidth="126.0" style="-fx-background-color: gray;" text="Add in list" textFill="#f5eeee">
                <graphic>
                   <FontAwesomeIconView glyphName="PLUS" />
                </graphic>
             </Button>
-            <Button fx:id="returnToHome" mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="110.0" prefWidth="122.0" style="-fx-background-color: gray;" text="Return to&#10;HomePage" textFill="#fcf9f9">
+            <Button fx:id="returnToHome" id="returnToHome"  mnemonicParsing="false" onMouseClicked="#handleReturn" prefHeight="110.0" prefWidth="122.0" style="-fx-background-color: gray;" text="Return to&#10;HomePage" textFill="#fcf9f9">
                <graphic>
                   <FontAwesomeIconView glyphName="BACKWARD" />
                </graphic>
@@ -37,7 +37,7 @@
       <Pane layoutX="125.0" prefHeight="79.0" prefWidth="376.0" style="-fx-background-color: silver;" />
       <Pane layoutX="125.0" layoutY="323.0" prefHeight="79.0" prefWidth="376.0" style="-fx-background-color: silver;">
          <children>
-            <Text fx:id="exception" layoutX="212.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="132.0" />
+            <Text fx:id="exception" id="exception" layoutX="212.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="132.0" />
          </children>
       </Pane>
    </children>

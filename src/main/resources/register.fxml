@@ -13,21 +13,21 @@
 
     <Label text="Username:" textFill="#f8f5f5" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-    <TextField fx:id="usernameField" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <TextField fx:id="usernameField" id="username" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
     <Label text="Password:" textFill="#f2eded" GridPane.columnIndex="0" GridPane.rowIndex="2" />
 
-    <PasswordField fx:id="passwordField" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <PasswordField fx:id="passwordField" id="password" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
     <Label text="Role:" textFill="#fffbfb" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-    <ChoiceBox fx:id="role" prefWidth="150.0" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+    <ChoiceBox fx:id="role" id="role" prefWidth="150.0" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="3">
     </ChoiceBox>
 
-    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+    <Text fx:id="registrationMessage" id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7" />
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
       <Button fx:id="button2" mnemonicParsing="false" onMouseClicked="#handle2" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: indianred;" text="Back" textFill="#fffdfd" />
-        <Button onAction="#handleRegisterAction" style="-fx-background-color: steelblue;" text="Register" textFill="#fcf9f9" />
+        <Button onAction="#handleRegisterAction" id="registerButton" style="-fx-background-color: steelblue;" text="Register" textFill="#fcf9f9" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />

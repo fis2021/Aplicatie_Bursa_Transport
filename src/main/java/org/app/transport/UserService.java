@@ -1,41 +1,42 @@
-package org.app.transport.services;
+package org.app.transport;
 
 import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
+import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.model.User;
 import org.dizitart.no2.Nitrite;
-import org.dizitart.no2.RemoveOptions;
-import org.dizitart.no2.exceptions.NitriteIOException;
-import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
-import static org.app.transport.services.FileSystemService.getPathToFile;
+
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class UserService {
     public static ObjectRepository<User> userRepository;
-
+    public static Nitrite database;
     public static void initDatabase() {
-
-            Nitrite database = Nitrite.builder()
-                    .filePath(getPathToFile("myData4.db").toFile())
+        FileSystemService.initDirectory();
+             database = Nitrite.builder()
+                    .filePath(FileSystemService.getPathToFile("myData7.db").toFile())
                     .openOrCreate("test", "test");
             userRepository = database.getRepository(User.class);
 
     }
-    public static void addUser(String username, String password, String role, String good) throws UsernameAlreadyExistsException,IncorrectUsername, IncorrectPassword {
+    public static void addUser(String username, String password, String role, String good) throws UsernameAlreadyExistsException, IncorrectUsername, IncorrectPassword, RoleException {
         checkUserDoesNotAlreadyExist(username);
         if(username.length()<3) throw new IncorrectUsername();
         if(password.length()<3) throw new IncorrectPassword();
+        if(role==null) throw new RoleException();
         userRepository.insert(new User(username, encodePassword(username, password), role,good));
     }
-
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
+    }
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))

@@ -11,9 +11,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.app.transport.model.User;
-import org.app.transport.services.UserService;
+import org.app.transport.UserService;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class LoginController {
@@ -59,7 +58,7 @@ public class LoginController {
                      }
                  }
              }
-             else registrationMessage.setText("incorrect password");
+             else registrationMessage.setText("incorrect password!");
 
         }
         else registrationMessage.setText("No account!");
