@@ -58,7 +58,7 @@ public class LoginController {
                      }
                  }
              }
-             else registrationMessage.setText("incorrect password");
+             else registrationMessage.setText("incorrect password!");
 
         }
         else registrationMessage.setText("No account!");

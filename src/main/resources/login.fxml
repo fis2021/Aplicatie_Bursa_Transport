@@ -19,16 +19,16 @@
 
     <Label text="Username:" textFill="#eee8e8" GridPane.rowIndex="5" />
 
-    <TextField fx:id="usernameField" id="usernameField" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <TextField fx:id="usernameField" id="username" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
     <Label text="Password:" textFill="#fcf9f9" GridPane.rowIndex="6" />
 
-    <PasswordField fx:id="passwordField" id="passwordField" prefHeight="22.0" prefWidth="149.0" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+    <PasswordField fx:id="passwordField" id="password" prefHeight="22.0" prefWidth="149.0" style="-fx-background-color: darkseagreen;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
     <Text fx:id="registrationMessage" id="registrationMessage" fill="WHITE" wrappingWidth="147.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
         <Button fx:id="button3" mnemonicParsing="false" onMouseClicked="#handle3" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: indianred;" text="Back" textFill="#eeeaea" />
-        <Button fx:id="SignInButton" id="SignInButton" onAction="#handleLogIn" style="-fx-background-color: steelblue;" text="Sign in" textFill="#f5efef" />
+        <Button fx:id="SignInButton" id="signUpButton" onAction="#handleLogIn" style="-fx-background-color: steelblue;" text="Sign in" textFill="#f5efef" />
     </HBox>
    <Text fill="#f5f0f0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter username and password to log in!" wrappingWidth="146.13671875" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     <columnConstraints>
