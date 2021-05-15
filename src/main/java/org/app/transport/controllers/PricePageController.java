@@ -82,7 +82,6 @@ public class PricePageController {
             LocalDate localDate=LocalDate.parse(date.getEditor().getText(),formatter);
             date1=new DatePicker(localDate);
             Offer o=new Offer(split[0],username,price.getText()+" "+currency.getValue(),date1.getValue().toString(),info.getText(),"In pending",g);
-            System.out.println(o.toString());
             c.setSomething(o.toString());
             UserService.updateUser(c,username);
             message.setText("Your offer will be send!");
