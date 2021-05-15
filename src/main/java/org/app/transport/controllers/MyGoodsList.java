@@ -46,7 +46,7 @@ private Text message;
         this.userName1 = userName1;
         User c = UserService.FindTheUser(userName1);
         if(c.getGood().isEmpty()||c.getGood().compareTo("*")==0)
-            message.setText("No element in the list");
+            message.setText("No element in the list!");
         else {
             String[] splits = c.getGood().split("/");
             for (String s : splits) {
@@ -101,7 +101,7 @@ private Text message;
             c.set(b);
             UserService.updateUser(c, userName1);
             listView.getItems().remove(listItem);
-            message.setText("The item was deleted");
+            message.setText("The item was deleted!");
         }
     }
 }
