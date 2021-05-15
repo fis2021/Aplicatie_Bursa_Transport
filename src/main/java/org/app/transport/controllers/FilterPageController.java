@@ -530,7 +530,7 @@ private Button filter;
                 "Techirghiol",
                 "Tecuci",
                 "Teiuş",
-                "Timişoara",
+                "Timisoara",
                 "Tismana",
                 "Titu",
                 "Topliţa",

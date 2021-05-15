@@ -14,12 +14,16 @@ import org.app.transport.model.User;
 import org.app.transport.services.UserService;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class PricePageController {
     @FXML
     private Button returnButton;
     @FXML
     private DatePicker date;
+    @FXML
+    private DatePicker date1;
     @FXML
     private TextField price;
     @FXML
@@ -65,15 +69,20 @@ public class PricePageController {
     }
 
     public void handleOffer(MouseEvent mouseEvent) {
-        if(date.getValue()!=null&& price.getText()!=null&&currency.getValue()!=null)
+        if(date.getEditor().getText()!=null&& price.getText()!=null&&currency.getValue()!=null&&(price.getText().compareTo("")!=0))
         {
+
             User c= UserService.FindTheUser(username);
             String [] split=listItem.split(":");
             String [] split2=goodInfo.split("-");
             Good g=new Good(split2[0],split2[1],split2[2],split2[3],split2[4]);
             if(info.getText().length()<2)
                 info.setText("No information!");
-            Offer o=new Offer(split[0],username,price.getText()+" "+currency.getValue(),date.getValue().toString(),info.getText(),"In pending",g);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+            LocalDate localDate=LocalDate.parse(date.getEditor().getText(),formatter);
+            date1=new DatePicker(localDate);
+            Offer o=new Offer(split[0],username,price.getText()+" "+currency.getValue(),date1.getValue().toString(),info.getText(),"In pending",g);
+            System.out.println(o.toString());
             c.setSomething(o.toString());
             UserService.updateUser(c,username);
             message.setText("Your offer will be send!");
