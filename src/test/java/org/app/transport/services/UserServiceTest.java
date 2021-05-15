@@ -47,4 +47,12 @@ class UserServiceTest {
         assertThat(user.getPassword()).isEqualTo(UserService.encodePassword(ADMIN, ADMIN));
         assertThat(user.getRole()).isEqualTo(ADMIN);
     }
+    @Test
+    @DisplayName("User can not be added twice")
+    void testUserCanNotBeAddedTwice() {
+        assertThrows(UsernameAlreadyExistsException.class, () -> {
+            UserService.addUser(ADMIN, ADMIN, ADMIN,ADMIN);
+            UserService.addUser(ADMIN, ADMIN, ADMIN,ADMIN);
+        });
+    }
 }
