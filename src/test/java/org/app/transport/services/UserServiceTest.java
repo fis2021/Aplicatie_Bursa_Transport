@@ -75,4 +75,12 @@ class UserServiceTest {
         User user1 =UserService.FindTheUser(user.getUsername());
         assertThat(user.equals(user1));
     }
+    @Test
+    @DisplayName("Encode Password check")
+    void EncodePassword()
+    {
+        String s1= UserService.encodePassword("buna","apa");
+        String s2=UserService.encodePassword("buna","apa");
+        assertThat(s1).isEqualTo(s2);
+    }
 }
