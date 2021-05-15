@@ -40,6 +40,22 @@ class MyGoodsListTest {
     @Test
     void testMyGoodList(FxRobot robot){
         Assertions.assertThat(robot.lookup("#listView").queryListView().getItems().get(0)).isEqualTo("3 tone-Arad-Timisoara-ROM-str.1");
-
+        robot.clickOn("#EditButton");
+        Assertions.assertThat(robot.lookup("#message").queryText()).hasText("No item selected!");
+        robot.clickOn("#listView").clickOn("3 tone-Arad-Timisoara-ROM-str.1");
+        robot.clickOn("#EditButton");
+        robot.clickOn("#weight");
+        robot.write(APA);
+        robot.clickOn("#locationFrom");
+        robot.write(APA);
+        robot.clickOn("#locationTo");
+        robot.write(APA);
+        robot.clickOn("#companyName");
+        robot.write(APA);
+        robot.clickOn("#detailedAddress");
+        robot.write(APA);
+        robot.clickOn("#addInList");
+        robot.clickOn("#returnToHome");
+        Assertions.assertThat(robot.lookup("#listView").queryListView().getItems().get(0)).isEqualTo("3 toneapa-Aradapa-Timisoaraapa-ROMapa-str.1apa");
     }
 }
