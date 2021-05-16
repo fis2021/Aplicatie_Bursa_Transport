@@ -69,7 +69,7 @@ public class PricePageController {
     }
 
     public void handleOffer(MouseEvent mouseEvent) {
-        if(date.getEditor().getText()!=null&& price.getText()!=null&&currency.getValue()!=null&&(price.getText().compareTo("")!=0))
+        if(date.getEditor().getText()!=null&& price.getText()!=null&&currency.getValue()!=null&&(price.getText().compareTo("")!=0)&&(!(date.getEditor().getText().isEmpty())))
         {
 
             User c= UserService.FindTheUser(username);

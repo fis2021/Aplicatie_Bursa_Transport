@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import org.app.transport.UserService;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
 import org.app.transport.model.User;
-import org.controlsfx.control.Rating;
+
 
 import java.io.IOException;
 import java.net.URL;

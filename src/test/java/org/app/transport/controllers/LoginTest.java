@@ -11,6 +11,7 @@ import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
 import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,6 +38,10 @@ class LoginTest {
         primaryStage.setTitle("Registration Example");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+    }
+    @AfterEach
+    void tearDown() {
+        UserService.database.close();
     }
     @Test
     void testLogin(FxRobot robot) throws IncorrectUsername, UsernameAlreadyExistsException, IncorrectPassword, RoleException {
