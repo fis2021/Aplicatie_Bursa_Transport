@@ -15,6 +15,7 @@ import org.app.transport.model.User;
 import org.app.transport.UserService;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,13 +23,16 @@ public class myTransactionsPageTransportClientController {
     @FXML
     private Button ReturnHome;
     @FXML
-    private ListView<String> listView;
+    private Button GiveRating;
+    @FXML
+    private ListView<String> listView, listView2;
     @FXML
     private Text message;
 
     private String username;
     private String listElement;
     private int n = 0;
+    private String rating;
 
     public void setUsername(String username) {
         this.username = username;
@@ -47,10 +51,21 @@ public class myTransactionsPageTransportClientController {
                     String[] split2 = sOperator.split("\\|");
                     String[] split3 = split2[0].split("~");
                     if(split3[0].compareTo(c.getUsername()) == 0) {
-                        if (split3[5].equals("Closed")) {
-                            b1 = split3[0] + " " + split3[1] + " " + split3[2] + " " + split3[3] + " " + split3[4];
-                            listView.getItems().add(b1);
-                        }
+                        rating = split3[5].substring(split3[5].length());
+
+                            split3[5] = split3[5].substring(0, split3[5].length() - 1);
+                            if (split3[5].length() > 6)
+                                split3[5] = split3[5].substring(0, split3[5].length() - 1);
+                            if (split3[5].equals("Closed")) {
+                                b1 = split3[0] + " " + split3[1] + " " + split3[2] + " " + split3[3] + " " + split3[4] + rating;
+                                listView2.getItems().add(b1);
+                                System.out.println(rating);
+                            }else {
+                                b2 = split3[0] + " " + split3[1] + " " + split3[2] + " " + split3[3] + " " + split3[4] + rating;
+                                listView.getItems().add(b2);
+                                System.out.println(rating);
+                            }
+
                     }
                 }
             }
@@ -59,6 +74,14 @@ public class myTransactionsPageTransportClientController {
 
 
             listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed (ObservableValue < ? extends String > observableValue, String s, String t1){
+                n = listView.getSelectionModel().getSelectedIndex();
+                listElement = listView.getSelectionModel().getSelectedItem();
+            }
+        });
+
+        listView2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed (ObservableValue < ? extends String > observableValue, String s, String t1){
                 n = listView.getSelectionModel().getSelectedIndex();
@@ -80,6 +103,23 @@ public class myTransactionsPageTransportClientController {
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void handleRating(MouseEvent mouseEvent) {
+        if (listElement == null)
+            message.setText("No item selected!");
+        else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ClientGiveRating.fxml"));
+                Parent root = (Parent) loader.load();
+                ClientGiveRatingController log = loader.getController();
+                log.setUsername(username);
+                Stage window = (Stage) GiveRating.getScene().getWindow();
+                window.setScene(new Scene(root, 500, 400));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

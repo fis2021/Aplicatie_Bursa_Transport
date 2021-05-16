@@ -6,9 +6,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.TruckingGiveRatingController">
    <children>
-      <Button fx:id="GiveRating" layoutX="194.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleGiveRating" prefHeight="33.0" prefWidth="114.0" text="Submit" />
+      <Button fx:id="GiveTruckingRating" layoutX="287.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#handleGiveRating" prefHeight="34.0" prefWidth="73.0" text="Close" />
       <Button fx:id="ReturnHome" layoutX="10.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#handleReturn" text="Back" />
-      <ChoiceBox fx:id="rating" layoutX="175.0" layoutY="129.0" prefWidth="150.0" />
       <Text layoutX="123.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Give a rating!" textAlignment="CENTER" wrappingWidth="255.0">
          <font>
             <Font name="Arial Bold" size="24.0" />

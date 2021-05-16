@@ -2,11 +2,15 @@ package org.app.transport.controllers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -15,9 +19,11 @@ import org.app.transport.model.User;
 import org.app.transport.UserService;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Arrays;
+import java.util.ResourceBundle;
 
-public class MyTransactionsPageController {
+public class MyTransactionsPageController implements Initializable {
     @FXML
     public Button ClosedTransaction;
     @FXML
@@ -35,6 +41,24 @@ public class MyTransactionsPageController {
     private int n = 0;
     @FXML
     private Button GiveRating;
+    ObservableList list = FXCollections.observableArrayList();
+    @FXML
+    private ChoiceBox<String> ratingChoice;
+
+    public void initialize(URL url, ResourceBundle rb) {
+        loadData();
+    }
+
+    private void loadData() {
+        list.removeAll(list);
+        String a = "1";
+        String b = "2";
+        String c = "3";
+        String d = "4";
+        String e = "5";
+        list.addAll(a, b, c, d, e);
+        ratingChoice.getItems().addAll(list);
+    }
 
     public void setUsername(String username) {
         this.LocF = LocF;
@@ -107,7 +131,7 @@ public class MyTransactionsPageController {
                                 user.setClose(s);
                                 UserService.updateUser(user, user.getUsername());
                             });
-                            UserService.updateStatus(user, "Closed Offer");
+                            UserService.updateStatus(user, "Closed");
                             user.setClose(s);
                             System.out.println(Arrays.toString(split3));
                         }
@@ -116,7 +140,7 @@ public class MyTransactionsPageController {
         }
     }
 
-    public void handleRating(MouseEvent mouseEvent) {
+    /*public void handleRating(MouseEvent mouseEvent) {
         if (listElement == null)
             message.setText("No item selected!");
         else {
@@ -131,5 +155,32 @@ public class MyTransactionsPageController {
                 e.printStackTrace();
             }
         }
+    }*/
+
+    public void handleRating(MouseEvent mouseEvent) {
+        String truckRating = ratingChoice.getValue();
+        if (truckRating == null)
+            message.setText("No item selected!");
+        else
+            for (User user : UserService.userRepository.find())
+                if (user.getRole().compareTo("Trucking operator") == 0) {
+                    if (user.getGood().compareTo("*") != 0 && user.getGood().compareTo("") != 0) {
+                        String[] split = user.getGood().split("/");
+                        for (String s : split) {
+                            String[] split2 = s.split("\\|");
+                            String[] split3 = split2[0].split("~");
+                            GiveRating.setOnAction(e -> {
+                                message.setText("You give the rating!!");
+                                user.setClose(s);
+                                UserService.updateUser(user, user.getUsername());
+                            });
+                            user.setRating(user.getGood(), ratingChoice.getValue());
+                            UserService.updateUser(user, user.getUsername());
+                            System.out.println(user.getGood());
+                            user.setClose(s);
+                        }
+                    }
+                }
     }
+
 }
