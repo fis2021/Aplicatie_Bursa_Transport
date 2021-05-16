@@ -1,11 +1,6 @@
 package org.app.transport.model;
 
-import org.app.transport.services.UserService;
-import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.Id;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class User {
     @Id
