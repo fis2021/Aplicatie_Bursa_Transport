@@ -18,6 +18,7 @@ public class User {
 
     public User() {
     }
+
     public String getUsername() {
         return username;
     }
@@ -41,27 +42,25 @@ public class User {
     public String getGood() {
         return good;
     }
-    public void setSomething(String a)
-    {
-        if(good.compareTo("*")==0)
-        {
+
+    public void setSomething(String a) {
+        if (good.compareTo("*") == 0) {
             good = good + a;
-            good=good.substring(1);
-        }
-        else if(good.isEmpty()==true)
-        {
-            good=good+a;
-        }
-        else
-        good=good+"/"+a;
+            good = good.substring(1);
+        } else if (good.isEmpty() == true) {
+            good = good + a;
+        } else
+            good = good + "/" + a;
     }
-    public void set(String a)
-    {
-        good=a;
+
+    public void set(String a) {
+        good = a;
     }
+
     public void setRole(String role) {
-            this.role = role;
-        }
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -69,9 +68,9 @@ public class User {
 
         User user = (User) o;
 
-       if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
-       if (good != null ? !good.equals(user.good) : user.good != null) return false;
+        if (good != null ? !good.equals(user.good) : user.good != null) return false;
         return role != null ? role.equals(user.role) : user.role == null;
     }
 
@@ -84,103 +83,118 @@ public class User {
         return result;
     }
 
-    public void setAccept(String offer){
+    public void setAccept(String offer) {
 
-            String b="*";
-            boolean sw=true;
-            String[] split = good.split("/");
-            int k = 0;
-
-
-            for (String s : split) {
-                if(s.compareTo(offer) == 0) {
-                    split[k] = split[k].replace("In pending","Accepted");
-
-                }
-                k++;
-            }
-
-        for(String s:split)
-        {
-            if(sw==true)
-            {
-                b=b+s;
-                sw=false;
-            }
-            else
-            {
-                b=b+"/"+s;
-            }
-        }
-
-        b=b.substring(1);
-        good = b;
-
-    }
-
-    public void setReject(String offer){
-
-        String b="*";
-        boolean sw=true;
+        String b = "*";
+        boolean sw = true;
         String[] split = good.split("/");
         int k = 0;
 
 
         for (String s : split) {
-            if(s.compareTo(offer) == 0) {
-                split[k] = split[k].replace("In pending","Rejected");
+            if (s.compareTo(offer) == 0) {
+                split[k] = split[k].replace("In pending", "Accepted");
 
             }
             k++;
         }
 
-        for(String s:split)
-        {
-            if(sw==true)
-            {
-                b=b+s;
-                sw=false;
-            }
-            else
-            {
-                b=b+"/"+s;
+        for (String s : split) {
+            if (sw == true) {
+                b = b + s;
+                sw = false;
+            } else {
+                b = b + "/" + s;
             }
         }
 
-        b=b.substring(1);
+        b = b.substring(1);
         good = b;
 
     }
 
-    public void setClose(String offer){
+    public void setReject(String offer) {
 
-        String b="*";
-        boolean sw=true;
+        String b = "*";
+        boolean sw = true;
+        String[] split = good.split("/");
+        int k = 0;
+
+
+        for (String s : split) {
+            if (s.compareTo(offer) == 0) {
+                split[k] = split[k].replace("In pending", "Rejected");
+
+            }
+            k++;
+        }
+
+        for (String s : split) {
+            if (sw == true) {
+                b = b + s;
+                sw = false;
+            } else {
+                b = b + "/" + s;
+            }
+        }
+
+        b = b.substring(1);
+        good = b;
+
+    }
+
+    public void setClose(String offer) {
+
+        String b = "*";
+        boolean sw = true;
         String[] split = good.split("/");
         int k = 0;
 
         for (String s : split) {
-            if(s.compareTo(offer) == 0) {
-                split[k] = split[k].replace("Accepted","Closed");
+            if (s.compareTo(offer) == 0) {
+                split[k] = split[k].replace("Accepted", "Closed");
 
             }
             k++;
         }
 
-        for(String s:split)
-        {
-            if(sw)
-            {
-                b=b+s;
-                sw=false;
-            }
-            else
-                b=b+"/"+s;
+        for (String s : split) {
+            if (sw) {
+                b = b + s;
+                sw = false;
+            } else
+                b = b + "/" + s;
         }
-        b=b.substring(1);
+        b = b.substring(1);
         good = b;
     }
 
+    public void setRating(String offer, String rating) {
+
+
+        String b = "*";
+        boolean sw = true;
+        String[] split = good.split("/");
+        int k = 0;
+
+        for (String s : split) {
+            if (s.compareTo(offer) == 0) {
+                split[k] = split[k].replace("Closed", "Closed" + " " + rating);
+
+            }
+            k++;
+        }
+
+        for (String s : split) {
+            if (sw) {
+                b = b + s;
+                sw = false;
+            } else
+                b = b + "/" + s;
+        }
+        b = b.substring(1);
+        good = b;
+    }
 }
 
 

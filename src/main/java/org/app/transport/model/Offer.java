@@ -8,6 +8,7 @@ public class Offer {
     private String infoTrucking;
     private String offerState;
     private  Good g;
+    private String rating;
 
     public String getTransportUsername() {
         return transportUsername;
@@ -66,9 +67,19 @@ public class Offer {
         this.price=price;
         this.offerState=offerState;
         this.g=g;
+        this.rating = "0";
     }
     public String toString()
     {
         return transportUsername+"~"+truckingUsername+"~"+price+"~"+dueDate+"~"+infoTrucking+"~"+offerState+"|"+g.toString();
+    }
+
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 }

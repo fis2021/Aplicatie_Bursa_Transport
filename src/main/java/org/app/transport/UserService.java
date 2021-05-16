@@ -34,6 +34,15 @@ public class UserService {
         if(role==null) throw new RoleException();
         userRepository.insert(new User(username, encodePassword(username, password), role,good));
     }
+
+    public static void addRating(String username, String password, String role, String good) throws UsernameAlreadyExistsException, IncorrectUsername, IncorrectPassword, RoleException {
+        checkUserDoesNotAlreadyExist(username);
+        if(username.length()<3) throw new IncorrectUsername();
+        if(password.length()<3) throw new IncorrectPassword();
+        if(role==null) throw new RoleException();
+        userRepository.insert(new User(username, encodePassword(username, password), role,good));
+    }
+
     public static List<User> getAllUsers() {
         return userRepository.find().toList();
     }
@@ -54,6 +63,11 @@ public class UserService {
     public static void updateStatus(User c, String state)
     {
         userRepository.update(eq("offerState", state),c);
+    }
+
+    public static void updateRating(User c, String rating)
+    {
+        userRepository.update(eq("rating", rating),c);
     }
 
     public static boolean checkIsInDataBase(String username){

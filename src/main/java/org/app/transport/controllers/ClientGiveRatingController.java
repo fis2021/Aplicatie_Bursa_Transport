@@ -23,9 +23,9 @@ public class ClientGiveRatingController implements Initializable{
     @FXML
     private ChoiceBox<String> rating;
     @FXML
-    private Button ReturnHome;
+    private Button ReturnClientHome;
     @FXML
-    private Button GiveRating;
+    private Button ClientGiveRating;
     private String username;
     private Text message;
 
@@ -49,13 +49,13 @@ public class ClientGiveRatingController implements Initializable{
     {
         this.username=userName;
     }
-    public void handleReturn(MouseEvent mouseEvent) {
+    public void handleClientReturn(MouseEvent mouseEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/myTransactionsPageTransportClient.fxml"));
             Parent root = (Parent) loader.load();
-            MyTransactionsPageController log = loader.getController();
+            myTransactionsPageTransportClientController log = loader.getController();
             log.setUsername(username);
-            Stage window = (Stage) ReturnHome.getScene().getWindow();
+            Stage window = (Stage) ReturnClientHome.getScene().getWindow();
             window.setScene(new Scene(root, 500, 400));
         } catch (IOException e) {
             e.printStackTrace();
