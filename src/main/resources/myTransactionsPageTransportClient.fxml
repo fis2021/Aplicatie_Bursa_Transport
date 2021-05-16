@@ -5,9 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="500.0"
-            style="-fx-background-color: seashell;" xmlns="http://javafx.com/javafx/11.0.1"
-            fx:controller="org.app.transport.controllers.myTransactionsPageTransportClientController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: seashell;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.myTransactionsPageTransportClientController">
     <children>
         <VBox layoutY="1.0" prefHeight="409.0" prefWidth="130.0" style="-fx-background-color: gray;">
             <children>
@@ -30,6 +28,14 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="374.0">
                             <children>
                                 <ListView fx:id="listView" layoutX="6.0" prefHeight="359.0" prefWidth="374.0" style="-fx-background-color: seashell;" />
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="My Ratings">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ListView fx:id="listView2" layoutY="-1.0" prefHeight="331.0" prefWidth="374.0" />
                             </children></AnchorPane>
                     </content>
                 </Tab>
