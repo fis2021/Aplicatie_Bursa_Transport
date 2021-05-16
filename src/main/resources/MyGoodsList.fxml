@@ -10,15 +10,15 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: gainsboro;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.transport.controllers.MyGoodsList">
    <children>
-      <ListView fx:id="listView" layoutX="114.0" layoutY="66.0" prefHeight="265.0" prefWidth="388.0" style="-fx-background-color: seashell;" />
+      <ListView fx:id="listView" id="listView" layoutX="114.0" layoutY="66.0" prefHeight="265.0" prefWidth="388.0" style="-fx-background-color: seashell;" />
       <VBox layoutY="68.0" prefHeight="265.0" prefWidth="114.0" style="-fx-background-color: gray;">
          <children>
-            <Button fx:id="EditButton" mnemonicParsing="false" onMouseClicked="#handleEdit" prefHeight="73.0" prefWidth="83.0" style="-fx-background-color: gray;" text="Edit" textFill="#fffdfd">
+            <Button fx:id="EditButton" id="EditButton" mnemonicParsing="false" onMouseClicked="#handleEdit" prefHeight="73.0" prefWidth="83.0" style="-fx-background-color: gray;" text="Edit" textFill="#fffdfd">
                <graphic>
                   <FontAwesomeIconView glyphName="EDIT" />
                </graphic>
             </Button>
-            <Button fx:id="deleteButton" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="75.0" prefWidth="92.0" style="-fx-background-color: gray;" text="Delete" textFill="#fcfcfc">
+            <Button fx:id="deleteButton" id="deleteButton" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="75.0" prefWidth="92.0" style="-fx-background-color: gray;" text="Delete" textFill="#fcfcfc">
                <graphic>
                   <FontAwesomeIconView glyphName="TRASH" />
                </graphic>
@@ -32,7 +32,7 @@
       </VBox>
       <Pane layoutX="114.0" layoutY="331.0" prefHeight="73.0" prefWidth="388.0" style="-fx-background-color: silver;">
          <children>
-            <Text fx:id="message" layoutX="183.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="129.0" />
+            <Text fx:id="message" id="message" layoutX="183.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="129.0" />
          </children></Pane>
       <Pane layoutX="114.0" prefHeight="66.0" prefWidth="388.0" style="-fx-background-color: silver;" />
    </children>
