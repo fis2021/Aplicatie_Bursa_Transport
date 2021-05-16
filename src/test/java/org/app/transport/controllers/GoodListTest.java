@@ -11,6 +11,7 @@ import org.app.transport.exceptions.IncorrectPassword;
 import org.app.transport.exceptions.IncorrectUsername;
 import org.app.transport.exceptions.RoleException;
 import org.app.transport.exceptions.UsernameAlreadyExistsException;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -43,6 +44,10 @@ class GoodListTest {
         {
             e.printStackTrace();
         }
+    }
+    @AfterEach
+    void tearDown() {
+        UserService.database.close();
     }
     @Test
     void GoodListTest(FxRobot robot) throws IncorrectUsername, UsernameAlreadyExistsException, IncorrectPassword, RoleException {

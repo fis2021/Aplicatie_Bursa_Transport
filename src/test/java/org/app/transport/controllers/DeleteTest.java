@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import org.app.transport.FileSystemService;
 import org.app.transport.UserService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
@@ -36,6 +37,10 @@ public class DeleteTest {
         {
             e.printStackTrace();
         }
+    }
+    @AfterEach
+    void tearDown() {
+        UserService.database.close();
     }
     @Test
     void deleteTest(FxRobot robot)

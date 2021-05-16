@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.app.transport.FileSystemService;
 import org.app.transport.UserService;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,7 +38,10 @@ class RegistrationTest {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
-
+    @AfterEach
+    void tearDown() {
+        UserService.database.close();
+    }
     @Test
     void testRegistration(FxRobot robot) {
         robot.clickOn("#username");
